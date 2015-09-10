@@ -140,9 +140,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="lib\Mommosoft.ExpertSystem.dll" />
     <None Include="Resources\gear_run 48.png" />
     <None Include="Resources\gear_run.png" />
