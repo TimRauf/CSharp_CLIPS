@@ -51,6 +51,8 @@ namespace CSharp_CLIPS
         }
         private void FillCombo()
         {
+            //FFFFFFFFFFFFFFFFFFFFFFUUUUUUUUUUUUUUUUUUUUUUUUUCCCCCCCCCCCCCCCCCCCCKkkkkkkkkkkkkkkk!!!!!!!!!!!!
+
             this.comboOpTip.Items.Add(new SelectData(1, "Токарная"));
             this.comboOpTip.Items.Add(new SelectData(2, "Фрезерная"));
             this.comboOpTip.Items.Add(new SelectData(3, "Сверлильная"));

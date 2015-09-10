@@ -45,10 +45,11 @@ namespace CSharp_CLIPS
         }
         private void FillCombo()
         {
+            //ваще нахер снаружи надо грузить,xml там или еще что!!!!!!!!
             this.comboTipProiz.Items.Add(new SelectData(1, "Единичное"));
             this.comboTipProiz.Items.Add(new SelectData(2, "Серийное"));
             this.comboTipProiz.Items.Add(new SelectData(3, "Массовое"));
-            this.comboTipProiz.Items.Add(new SelectData(3, "Крупносерийное"));
+            this.comboTipProiz.Items.Add(new SelectData(4, "Крупносерийное"));
 
             this.comboKvalToch.Items.Add(new SelectData(6, "6"));
             this.comboKvalToch.Items.Add(new SelectData(7, "7"));
@@ -98,6 +99,11 @@ namespace CSharp_CLIPS
                     txtPrintout.Text = resTxt;
                 }
             }
+        }
+
+        private void backStage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -47,6 +47,7 @@ namespace CSharp_CLIPS
 
         private void FillCombo()
         {
+            // нафиг переписать через List!!!!!!!!!!!!!!
             this.comboDetTip.Items.Add(new SelectData(1, "Тело вращения"));
             this.comboDetTip.Items.Add(new SelectData(2, "Корпусная"));
             this.comboDetTip.Items.Add(new SelectData(3, "Пруток"));

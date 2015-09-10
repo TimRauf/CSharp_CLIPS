@@ -41,7 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.backStage = new System.Windows.Forms.Button();
-            this.NextStage = new System.Windows.Forms.Button();
+            this.nextStage = new System.Windows.Forms.Button();
             this.groupBoxB = new System.Windows.Forms.GroupBox();
             this.groupBoxB2 = new System.Windows.Forms.GroupBox();
             this.txtPrintout = new System.Windows.Forms.TextBox();
@@ -162,16 +162,17 @@
             this.backStage.Size = new System.Drawing.Size(55, 55);
             this.backStage.TabIndex = 13;
             this.backStage.UseVisualStyleBackColor = true;
+            this.backStage.Click += new System.EventHandler(this.backStage_Click);
             // 
-            // NextStage
+            // nextStage
             // 
-            this.NextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
-            this.NextStage.Location = new System.Drawing.Point(281, 350);
-            this.NextStage.Name = "NextStage";
-            this.NextStage.Size = new System.Drawing.Size(55, 55);
-            this.NextStage.TabIndex = 12;
-            this.NextStage.UseVisualStyleBackColor = true;
-            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
+            this.nextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
+            this.nextStage.Location = new System.Drawing.Point(281, 350);
+            this.nextStage.Name = "nextStage";
+            this.nextStage.Size = new System.Drawing.Size(55, 55);
+            this.nextStage.TabIndex = 12;
+            this.nextStage.UseVisualStyleBackColor = true;
+            this.nextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
             // groupBoxB
             // 
@@ -230,7 +231,7 @@
             this.Controls.Add(this.groupBoxB2);
             this.Controls.Add(this.groupBoxB);
             this.Controls.Add(this.backStage);
-            this.Controls.Add(this.NextStage);
+            this.Controls.Add(this.nextStage);
             this.Name = "FrmModuleB";
             this.Text = "Этап 2";
             this.Load += new System.EventHandler(this.FrmModuleB_Load);
@@ -256,7 +257,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button NextStage;
+        private System.Windows.Forms.Button nextStage;
         private System.Windows.Forms.Button backStage;
         private System.Windows.Forms.GroupBox groupBoxB;
         private System.Windows.Forms.GroupBox groupBoxB2;
