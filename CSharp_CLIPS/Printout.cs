@@ -8,7 +8,7 @@ using System.Windows.Controls;
 
 namespace CSharp_CLIPS
 {
-    public static class Printout
+    class Printout
     {
         public static string Print()
         {
