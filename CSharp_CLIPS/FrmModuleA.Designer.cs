@@ -252,7 +252,8 @@
             this.txtPrintout.Location = new System.Drawing.Point(6, 16);
             this.txtPrintout.Multiline = true;
             this.txtPrintout.Name = "txtPrintout";
-            this.txtPrintout.Size = new System.Drawing.Size(444, 82);
+            this.txtPrintout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPrintout.Size = new System.Drawing.Size(444, 177);
             this.txtPrintout.TabIndex = 21;
             // 
             // groupBox1
@@ -260,15 +261,15 @@
             this.groupBox1.Controls.Add(this.txtPrintout);
             this.groupBox1.Location = new System.Drawing.Point(15, 209);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(457, 105);
+            this.groupBox1.Size = new System.Drawing.Size(457, 199);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Вывод:";
+            this.groupBox1.Text = "Результат:";
             // 
             // RunA
             // 
             this.RunA.Image = global::CSharp_CLIPS.Properties.Resources.gear_run_48;
-            this.RunA.Location = new System.Drawing.Point(360, 320);
+            this.RunA.Location = new System.Drawing.Point(360, 414);
             this.RunA.Name = "RunA";
             this.RunA.Size = new System.Drawing.Size(55, 55);
             this.RunA.TabIndex = 23;
@@ -278,7 +279,7 @@
             // NextStage
             // 
             this.NextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
-            this.NextStage.Location = new System.Drawing.Point(421, 320);
+            this.NextStage.Location = new System.Drawing.Point(421, 414);
             this.NextStage.Name = "NextStage";
             this.NextStage.Size = new System.Drawing.Size(51, 56);
             this.NextStage.TabIndex = 0;
@@ -289,7 +290,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 381);
+            this.ClientSize = new System.Drawing.Size(482, 476);
             this.Controls.Add(this.RunA);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
@@ -314,7 +315,7 @@
             this.Controls.Add(this.comboDetTip);
             this.Controls.Add(this.NextStage);
             this.Name = "FrmModuleA";
-            this.Text = "Итог модуль А";
+            this.Text = "Модуль A";
             this.Load += new System.EventHandler(this.FrmModuleA_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

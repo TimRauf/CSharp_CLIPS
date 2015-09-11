@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Text;
+using System.IO;
 using Mommosoft.ExpertSystem;
 
 
@@ -21,7 +22,7 @@ namespace CSharp_CLIPS
         private bool AllFieldsFull()
         {
             if (comboDetTip.SelectedIndex != -1 && comboSposPol.SelectedIndex != -1 && comboZagMat.SelectedIndex != -1 &&
-                txtDetMass.Text != "" && txtDetName.Text != "" && txtGabDetDl.Text != "" && txtGabDetSh.Text != "" && txtGabDetV.Text != "" &&
+                /*txtDetMass.Text != "" &&*/ txtDetName.Text != "" && txtGabDetDl.Text != "" && txtGabDetSh.Text != "" /*&& txtGabDetV.Text != ""*/ &&
                 txtKolTexMod.Text != "" && txtStanEm.Text != "" && txtZagMass.Text != "")
             { return true; }
             else { return false; }
@@ -43,16 +44,19 @@ namespace CSharp_CLIPS
         {
             FillCombo();
             _clips.Load("myProgram.clp");
+            string _envDir = System.Environment.CurrentDirectory + "\\myFactsPrint.txt";
+            if (File.Exists(_envDir) == true)
+            {
+                File.Delete(_envDir);
+            }
         }
 
         private void FillCombo()
         {
-            // нафиг переписать через List!!!!!!!!!!!!!!
             this.comboDetTip.Items.Add(new SelectData(1, "Тело вращения"));
             this.comboDetTip.Items.Add(new SelectData(2, "Корпусная"));
             this.comboDetTip.Items.Add(new SelectData(3, "Пруток"));
             
-
             this.comboZagMat.Items.Add(new SelectData(1, "Сталь"));
             this.comboZagMat.Items.Add(new SelectData(2, "Чугун"));
             this.comboZagMat.Items.Add(new SelectData(3, "Цветной металл"));
@@ -66,31 +70,24 @@ namespace CSharp_CLIPS
 
         private bool OpenOutFile()
         {
-            PrimitiveValue rs = _clips.Evaluate("MAIN","(open \"myFactsPrint.txt\" myData \"w\")");
+            PrimitiveValue rs = _clips.Evaluate("MAIN","(open \"myFactsPrint.txt\" myData \"a\")");
             string res = rs.ToString();
             if (res == "TRUE")
             {
                 return true;
             }
-            else if (res == "FALSE")
-            {
-                rs = _clips.Evaluate("MAIN","(open \"C:/Temp/myFactsPrint.txt\" myData \"a\")"); 
-                res = rs.ToString();
-                if (res == "TRUE")
-                {
-                    return true;
-                }
-                else { return false; }
-            }
-            else { return true; }
+            else { return false; }
         }
 
         private void RunA_Click(object sender, EventArgs e)
         {
-            bool fO = OpenOutFile();
+            if (txtDetMass.Text == "") { txtDetMass.Text = "0"; }
+            if (txtGabDetV.Text == "") { txtGabDetV.Text = "0"; }
+
+            bool fileOpened = OpenOutFile();
             bool allChk = AllFieldsFull();
 
-            if (allChk == true && fO == true)
+            if (allChk == true && fileOpened == true)
             {
                 int selectedValueDetTip, selectedValueZagMat, selectedValueSposPol;
                 selectedValueDetTip = ((SelectData)this.comboDetTip.SelectedItem).Value;

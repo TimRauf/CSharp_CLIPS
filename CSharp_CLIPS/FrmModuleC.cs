@@ -17,6 +17,7 @@ namespace CSharp_CLIPS
         public FrmModuleC()
         {
             InitializeComponent();
+            _clips = Clips.GetInstance();
 
         }
         private bool AllFieldsFull()
@@ -32,27 +33,13 @@ namespace CSharp_CLIPS
             FillCombo();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            bool allChk = AllFieldsFull();
-            if (allChk == true)
-            {
-                int selectedValueOpTip, selectedValuePrimSOJ;
-                selectedValueOpTip = ((SelectData)this.comboOpTip.SelectedItem).Value;
-                selectedValuePrimSOJ = ((SelectData)this.comboPrimSOJ.SelectedItem).Value;
-
-                string[] currFrmSlots = { "KolUst:" + txtKolUst.Text, "OpTip:" + selectedValueOpTip.ToString(),
-                                          "OpVr:" + txtOpVr.Text, "PrimSOJ:" + selectedValuePrimSOJ.ToString(),
-                                          "Osnastka:" + txtOsnastka.Text, "Zahvat:" + txtZahvat.Text};
-                _clips.AssertString("D_Dann3", currFrmSlots);
-            }
-            else { MessageBox.Show("Проверьте заполненность полей!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            //_clips.Run(); раскомментить позже
+            Application.Exit();
+            //_clips.Evaluate("MAIN", "(remove \"myFactsPrint.txt\")");
         }
         private void FillCombo()
         {
-            //FFFFFFFFFFFFFFFFFFFFFFUUUUUUUUUUUUUUUUUUUUUUUUUCCCCCCCCCCCCCCCCCCCCKkkkkkkkkkkkkkkk!!!!!!!!!!!!
-
             this.comboOpTip.Items.Add(new SelectData(1, "Токарная"));
             this.comboOpTip.Items.Add(new SelectData(2, "Фрезерная"));
             this.comboOpTip.Items.Add(new SelectData(3, "Сверлильная"));
@@ -67,6 +54,42 @@ namespace CSharp_CLIPS
 
             this.comboPrimSOJ.Items.Add(new SelectData(1, "Да"));
             this.comboPrimSOJ.Items.Add(new SelectData(2, "Нет"));
+        }
+        private bool OpenOutFile()
+        {
+            PrimitiveValue rs = _clips.Evaluate("MAIN", "(open \"myFactsPrint.txt\" myData \"a\")");
+            string res = rs.ToString();
+            if (res == "TRUE")
+            {
+                return true;
+            }
+            else return false;
+        }
+        private void RunC_Click(object sender, EventArgs e)
+        {
+            bool fileOpened = OpenOutFile();
+            bool check = AllFieldsFull();
+            if (check == true && fileOpened == true)
+            {
+                int selectedValueOpTip, selectedValuePrimSOJ;
+                selectedValueOpTip = ((SelectData)this.comboOpTip.SelectedItem).Value;
+                selectedValuePrimSOJ = ((SelectData)this.comboPrimSOJ.SelectedItem).Value;
+
+                string[] currFrmSlots = { "KolUst:" + txtKolUst.Text, "OpTip:" + selectedValueOpTip.ToString(),
+                                          "OpVr:" + txtOpVr.Text, "PrimSOJ:" + selectedValuePrimSOJ.ToString(),
+                                          "Osnastka:" + txtOsnastka.Text, "Zahvat:" + txtZahvat.Text};
+                _clips.AssertString("D_Dann3", currFrmSlots);
+                _clips.Run();
+                PrimitiveValue rs = _clips.Evaluate("MAIN", "(close myData)");
+                string res = rs.ToString();
+                if (res == "TRUE")
+                {
+                    Printout prn = new Printout();
+                    string resTxt = Printout.Print();
+                    txtPrintout.Text = resTxt;
+                }
+            }
+            else { MessageBox.Show("Проверьте заполненность полей!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
         
     }

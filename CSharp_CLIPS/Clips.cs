@@ -29,13 +29,16 @@ namespace CSharp_CLIPS
         }
         public void AssertString(string templName, string[] slots)
         {
+            string evStr;
             string res = string.Empty;
+
             foreach (string s in slots)
             {
                 res+="(" + s.Replace(":"," ") + ")";
             }
             /************** ПРОВЕРКА НА СУЩЕСТВОВАНИЕ ВВОДИМОГО ФАКТА *************************/
-            MessageBox.Show("(" + templName + " " + res + ")");
+            //MessageBox.Show("(" + templName + " " + res + ")");
+            evStr = "(find-fact ((?f " + templName + ")))";
             _env.AssertString("(" + templName + " " + res + ")");
 
             

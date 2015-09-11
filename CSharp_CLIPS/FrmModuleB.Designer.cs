@@ -40,8 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.backStage = new System.Windows.Forms.Button();
-            this.nextStage = new System.Windows.Forms.Button();
+            this.NextStage = new System.Windows.Forms.Button();
             this.groupBoxB = new System.Windows.Forms.GroupBox();
             this.groupBoxB2 = new System.Windows.Forms.GroupBox();
             this.txtPrintout = new System.Windows.Forms.TextBox();
@@ -153,26 +152,15 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Глубина резания:";
             // 
-            // backStage
+            // NextStage
             // 
-            this.backStage.Enabled = false;
-            this.backStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_back_color_32xLG;
-            this.backStage.Location = new System.Drawing.Point(158, 350);
-            this.backStage.Name = "backStage";
-            this.backStage.Size = new System.Drawing.Size(55, 55);
-            this.backStage.TabIndex = 13;
-            this.backStage.UseVisualStyleBackColor = true;
-            this.backStage.Click += new System.EventHandler(this.backStage_Click);
-            // 
-            // nextStage
-            // 
-            this.nextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
-            this.nextStage.Location = new System.Drawing.Point(281, 350);
-            this.nextStage.Name = "nextStage";
-            this.nextStage.Size = new System.Drawing.Size(55, 55);
-            this.nextStage.TabIndex = 12;
-            this.nextStage.UseVisualStyleBackColor = true;
-            this.nextStage.Click += new System.EventHandler(this.NextStage_Click);
+            this.NextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
+            this.NextStage.Location = new System.Drawing.Point(282, 476);
+            this.NextStage.Name = "NextStage";
+            this.NextStage.Size = new System.Drawing.Size(55, 55);
+            this.NextStage.TabIndex = 12;
+            this.NextStage.UseVisualStyleBackColor = true;
+            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
             // groupBoxB
             // 
@@ -199,23 +187,24 @@
             this.groupBoxB2.Controls.Add(this.txtPrintout);
             this.groupBoxB2.Location = new System.Drawing.Point(10, 181);
             this.groupBoxB2.Name = "groupBoxB2";
-            this.groupBoxB2.Size = new System.Drawing.Size(327, 163);
+            this.groupBoxB2.Size = new System.Drawing.Size(327, 289);
             this.groupBoxB2.TabIndex = 15;
             this.groupBoxB2.TabStop = false;
-            this.groupBoxB2.Text = "Вывод:";
+            this.groupBoxB2.Text = "Результат:";
             // 
             // txtPrintout
             // 
             this.txtPrintout.Location = new System.Drawing.Point(6, 16);
             this.txtPrintout.Multiline = true;
             this.txtPrintout.Name = "txtPrintout";
-            this.txtPrintout.Size = new System.Drawing.Size(315, 140);
+            this.txtPrintout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPrintout.Size = new System.Drawing.Size(315, 267);
             this.txtPrintout.TabIndex = 0;
             // 
             // RunB
             // 
             this.RunB.Image = global::CSharp_CLIPS.Properties.Resources.gear_run_48;
-            this.RunB.Location = new System.Drawing.Point(219, 350);
+            this.RunB.Location = new System.Drawing.Point(220, 476);
             this.RunB.Name = "RunB";
             this.RunB.Size = new System.Drawing.Size(55, 55);
             this.RunB.TabIndex = 16;
@@ -226,14 +215,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 411);
+            this.ClientSize = new System.Drawing.Size(347, 543);
             this.Controls.Add(this.RunB);
             this.Controls.Add(this.groupBoxB2);
             this.Controls.Add(this.groupBoxB);
-            this.Controls.Add(this.backStage);
-            this.Controls.Add(this.nextStage);
+            this.Controls.Add(this.NextStage);
             this.Name = "FrmModuleB";
-            this.Text = "Этап 2";
+            this.Text = "Модуль B";
             this.Load += new System.EventHandler(this.FrmModuleB_Load);
             this.groupBoxB.ResumeLayout(false);
             this.groupBoxB.PerformLayout();
@@ -257,8 +245,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button nextStage;
-        private System.Windows.Forms.Button backStage;
+        private System.Windows.Forms.Button NextStage;
         private System.Windows.Forms.GroupBox groupBoxB;
         private System.Windows.Forms.GroupBox groupBoxB2;
         private System.Windows.Forms.TextBox txtPrintout;
