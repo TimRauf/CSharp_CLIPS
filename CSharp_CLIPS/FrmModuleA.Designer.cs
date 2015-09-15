@@ -55,10 +55,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.очиститьФормуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -323,6 +323,13 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
+            this.файлToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.выходToolStripMenuItem.Text = "Выход (Alt+X)";
             // 
             // редактированиеToolStripMenuItem
             // 
@@ -331,6 +338,13 @@
             this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
             this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.редактированиеToolStripMenuItem.Text = "Редактирование";
+            this.редактированиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            // 
+            // очиститьФормуToolStripMenuItem
+            // 
+            this.очиститьФормуToolStripMenuItem.Name = "очиститьФормуToolStripMenuItem";
+            this.очиститьФормуToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.очиститьФормуToolStripMenuItem.Text = "Очистить форму (Ctrl+E)";
             // 
             // справкаToolStripMenuItem
             // 
@@ -339,18 +353,7 @@
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.выходToolStripMenuItem.Text = "Выход (Alt+X)";
-            // 
-            // очиститьФормуToolStripMenuItem
-            // 
-            this.очиститьФормуToolStripMenuItem.Name = "очиститьФормуToolStripMenuItem";
-            this.очиститьФормуToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.очиститьФормуToolStripMenuItem.Text = "Очистить форму (Ctrl+E)";
+            this.справкаToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
             // aboutToolStripMenuItem
             // 

@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.NextStage = new System.Windows.Forms.Button();
+            this.grBoxOutData = new System.Windows.Forms.GroupBox();
+            this.txtPrintout = new System.Windows.Forms.TextBox();
+            this.RunB = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.comboTipProiz = new System.Windows.Forms.ComboBox();
             this.comboKvalToch = new System.Windows.Forms.ComboBox();
             this.txtSkorRez = new System.Windows.Forms.TextBox();
@@ -40,14 +45,64 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.NextStage = new System.Windows.Forms.Button();
-            this.groupBoxB = new System.Windows.Forms.GroupBox();
-            this.groupBoxB2 = new System.Windows.Forms.GroupBox();
-            this.txtPrintout = new System.Windows.Forms.TextBox();
-            this.RunB = new System.Windows.Forms.Button();
-            this.groupBoxB.SuspendLayout();
-            this.groupBoxB2.SuspendLayout();
+            this.grBoxInData = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.очиститьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.очиститьДанныеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.grBoxButtons = new System.Windows.Forms.GroupBox();
+            this.grBoxOutData.SuspendLayout();
+            this.grBoxInData.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.grBoxButtons.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // NextStage
+            // 
+            this.NextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
+            this.NextStage.Location = new System.Drawing.Point(266, 14);
+            this.NextStage.Name = "NextStage";
+            this.NextStage.Size = new System.Drawing.Size(55, 55);
+            this.NextStage.TabIndex = 12;
+            this.NextStage.UseVisualStyleBackColor = true;
+            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
+            // 
+            // grBoxOutData
+            // 
+            this.grBoxOutData.Controls.Add(this.txtPrintout);
+            this.grBoxOutData.Location = new System.Drawing.Point(12, 203);
+            this.grBoxOutData.Name = "grBoxOutData";
+            this.grBoxOutData.Size = new System.Drawing.Size(327, 289);
+            this.grBoxOutData.TabIndex = 15;
+            this.grBoxOutData.TabStop = false;
+            this.grBoxOutData.Text = "Результат:";
+            // 
+            // txtPrintout
+            // 
+            this.txtPrintout.Location = new System.Drawing.Point(6, 16);
+            this.txtPrintout.Multiline = true;
+            this.txtPrintout.Name = "txtPrintout";
+            this.txtPrintout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPrintout.Size = new System.Drawing.Size(315, 267);
+            this.txtPrintout.TabIndex = 0;
+            // 
+            // RunB
+            // 
+            this.RunB.Image = global::CSharp_CLIPS.Properties.Resources.gear_run_48;
+            this.RunB.Location = new System.Drawing.Point(204, 14);
+            this.RunB.Name = "RunB";
+            this.RunB.Size = new System.Drawing.Size(55, 55);
+            this.RunB.TabIndex = 16;
+            this.RunB.UseVisualStyleBackColor = true;
+            this.RunB.Click += new System.EventHandler(this.RunB_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::CSharp_CLIPS.Properties.Resources.arrow_back_color_32xLG;
+            this.button1.Location = new System.Drawing.Point(142, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 55);
+            this.button1.TabIndex = 17;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // comboTipProiz
             // 
@@ -152,87 +207,95 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Глубина резания:";
             // 
-            // NextStage
+            // grBoxInData
             // 
-            this.NextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
-            this.NextStage.Location = new System.Drawing.Point(282, 476);
-            this.NextStage.Name = "NextStage";
-            this.NextStage.Size = new System.Drawing.Size(55, 55);
-            this.NextStage.TabIndex = 12;
-            this.NextStage.UseVisualStyleBackColor = true;
-            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
+            this.grBoxInData.Controls.Add(this.label6);
+            this.grBoxInData.Controls.Add(this.label5);
+            this.grBoxInData.Controls.Add(this.label4);
+            this.grBoxInData.Controls.Add(this.label3);
+            this.grBoxInData.Controls.Add(this.label2);
+            this.grBoxInData.Controls.Add(this.label1);
+            this.grBoxInData.Controls.Add(this.txtVelPart);
+            this.grBoxInData.Controls.Add(this.txtGlubRez);
+            this.grBoxInData.Controls.Add(this.txtPodRez);
+            this.grBoxInData.Controls.Add(this.txtSkorRez);
+            this.grBoxInData.Controls.Add(this.comboKvalToch);
+            this.grBoxInData.Controls.Add(this.comboTipProiz);
+            this.grBoxInData.Location = new System.Drawing.Point(12, 27);
+            this.grBoxInData.Name = "grBoxInData";
+            this.grBoxInData.Size = new System.Drawing.Size(327, 169);
+            this.grBoxInData.TabIndex = 14;
+            this.grBoxInData.TabStop = false;
             // 
-            // groupBoxB
+            // menuStrip1
             // 
-            this.groupBoxB.Controls.Add(this.label6);
-            this.groupBoxB.Controls.Add(this.label5);
-            this.groupBoxB.Controls.Add(this.label4);
-            this.groupBoxB.Controls.Add(this.label3);
-            this.groupBoxB.Controls.Add(this.label2);
-            this.groupBoxB.Controls.Add(this.label1);
-            this.groupBoxB.Controls.Add(this.txtVelPart);
-            this.groupBoxB.Controls.Add(this.txtGlubRez);
-            this.groupBoxB.Controls.Add(this.txtPodRez);
-            this.groupBoxB.Controls.Add(this.txtSkorRez);
-            this.groupBoxB.Controls.Add(this.comboKvalToch);
-            this.groupBoxB.Controls.Add(this.comboTipProiz);
-            this.groupBoxB.Location = new System.Drawing.Point(10, 9);
-            this.groupBoxB.Name = "groupBoxB";
-            this.groupBoxB.Size = new System.Drawing.Size(327, 172);
-            this.groupBoxB.TabIndex = 14;
-            this.groupBoxB.TabStop = false;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.очиститьДанныеToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(349, 24);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // groupBoxB2
+            // очиститьДанныеToolStripMenuItem
             // 
-            this.groupBoxB2.Controls.Add(this.txtPrintout);
-            this.groupBoxB2.Location = new System.Drawing.Point(10, 181);
-            this.groupBoxB2.Name = "groupBoxB2";
-            this.groupBoxB2.Size = new System.Drawing.Size(327, 289);
-            this.groupBoxB2.TabIndex = 15;
-            this.groupBoxB2.TabStop = false;
-            this.groupBoxB2.Text = "Результат:";
+            this.очиститьДанныеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.очиститьДанныеToolStripMenuItem1});
+            this.очиститьДанныеToolStripMenuItem.Name = "очиститьДанныеToolStripMenuItem";
+            this.очиститьДанныеToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
+            this.очиститьДанныеToolStripMenuItem.Text = "Редактирование";
+            this.очиститьДанныеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
-            // txtPrintout
+            // очиститьДанныеToolStripMenuItem1
             // 
-            this.txtPrintout.Location = new System.Drawing.Point(6, 16);
-            this.txtPrintout.Multiline = true;
-            this.txtPrintout.Name = "txtPrintout";
-            this.txtPrintout.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPrintout.Size = new System.Drawing.Size(315, 267);
-            this.txtPrintout.TabIndex = 0;
+            this.очиститьДанныеToolStripMenuItem1.Name = "очиститьДанныеToolStripMenuItem1";
+            this.очиститьДанныеToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.очиститьДанныеToolStripMenuItem1.Text = "Очистить данные";
             // 
-            // RunB
+            // grBoxButtons
             // 
-            this.RunB.Image = global::CSharp_CLIPS.Properties.Resources.gear_run_48;
-            this.RunB.Location = new System.Drawing.Point(220, 476);
-            this.RunB.Name = "RunB";
-            this.RunB.Size = new System.Drawing.Size(55, 55);
-            this.RunB.TabIndex = 16;
-            this.RunB.UseVisualStyleBackColor = true;
-            this.RunB.Click += new System.EventHandler(this.RunB_Click);
+            this.grBoxButtons.BackColor = System.Drawing.Color.Silver;
+            this.grBoxButtons.Controls.Add(this.NextStage);
+            this.grBoxButtons.Controls.Add(this.button1);
+            this.grBoxButtons.Controls.Add(this.RunB);
+            this.grBoxButtons.Location = new System.Drawing.Point(12, 492);
+            this.grBoxButtons.Name = "grBoxButtons";
+            this.grBoxButtons.Size = new System.Drawing.Size(327, 75);
+            this.grBoxButtons.TabIndex = 19;
+            this.grBoxButtons.TabStop = false;
             // 
             // FrmModuleB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 543);
-            this.Controls.Add(this.RunB);
-            this.Controls.Add(this.groupBoxB2);
-            this.Controls.Add(this.groupBoxB);
-            this.Controls.Add(this.NextStage);
+            this.ClientSize = new System.Drawing.Size(349, 573);
+            this.Controls.Add(this.grBoxButtons);
+            this.Controls.Add(this.grBoxOutData);
+            this.Controls.Add(this.grBoxInData);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmModuleB";
             this.Text = "Модуль B";
             this.Load += new System.EventHandler(this.FrmModuleB_Load);
-            this.groupBoxB.ResumeLayout(false);
-            this.groupBoxB.PerformLayout();
-            this.groupBoxB2.ResumeLayout(false);
-            this.groupBoxB2.PerformLayout();
+            this.grBoxOutData.ResumeLayout(false);
+            this.grBoxOutData.PerformLayout();
+            this.grBoxInData.ResumeLayout(false);
+            this.grBoxInData.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.grBoxButtons.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Button NextStage;
+        private System.Windows.Forms.GroupBox grBoxOutData;
+        private System.Windows.Forms.TextBox txtPrintout;
+        private System.Windows.Forms.Button RunB;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboTipProiz;
         private System.Windows.Forms.ComboBox comboKvalToch;
         private System.Windows.Forms.TextBox txtSkorRez;
@@ -245,10 +308,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button NextStage;
-        private System.Windows.Forms.GroupBox groupBoxB;
-        private System.Windows.Forms.GroupBox groupBoxB2;
-        private System.Windows.Forms.TextBox txtPrintout;
-        private System.Windows.Forms.Button RunB;
+        private System.Windows.Forms.GroupBox grBoxInData;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem очиститьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem очиститьДанныеToolStripMenuItem1;
+        private System.Windows.Forms.GroupBox grBoxButtons;
     }
 }
