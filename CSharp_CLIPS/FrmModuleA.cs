@@ -177,8 +177,10 @@ namespace CSharp_CLIPS
             }
         }
 
-        
-
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Author:Tim Rauf,Khusnutdinova G.", "О программе", MessageBoxButtons.OK);
+        }
     }
     
 }
