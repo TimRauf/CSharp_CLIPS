@@ -218,7 +218,7 @@
             // 
             // grBoxButtons
             // 
-            this.grBoxButtons.BackColor = System.Drawing.Color.Silver;
+            this.grBoxButtons.BackColor = System.Drawing.Color.Transparent;
             this.grBoxButtons.Controls.Add(this.btnExit);
             this.grBoxButtons.Controls.Add(this.RunC);
             this.grBoxButtons.Location = new System.Drawing.Point(12, 642);
@@ -256,7 +256,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 754);
+            this.ClientSize = new System.Drawing.Size(463, 724);
             this.Controls.Add(this.grBoxButtons);
             this.Controls.Add(this.grBoxInData);
             this.Controls.Add(this.grBoxOutData);

@@ -78,6 +78,7 @@
             // 
             // txtPrintout
             // 
+            this.txtPrintout.BackColor = System.Drawing.SystemColors.Menu;
             this.txtPrintout.Location = new System.Drawing.Point(6, 16);
             this.txtPrintout.Multiline = true;
             this.txtPrintout.Name = "txtPrintout";
@@ -226,6 +227,7 @@
             this.grBoxInData.Size = new System.Drawing.Size(327, 169);
             this.grBoxInData.TabIndex = 14;
             this.grBoxInData.TabStop = false;
+            this.grBoxInData.Text = "Данные";
             // 
             // menuStrip1
             // 
@@ -252,10 +254,11 @@
             this.очиститьДанныеToolStripMenuItem1.Name = "очиститьДанныеToolStripMenuItem1";
             this.очиститьДанныеToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
             this.очиститьДанныеToolStripMenuItem1.Text = "Очистить данные";
+            this.очиститьДанныеToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grBoxButtons
             // 
-            this.grBoxButtons.BackColor = System.Drawing.Color.Silver;
+            this.grBoxButtons.BackColor = System.Drawing.Color.Transparent;
             this.grBoxButtons.Controls.Add(this.NextStage);
             this.grBoxButtons.Controls.Add(this.button1);
             this.grBoxButtons.Controls.Add(this.RunB);
