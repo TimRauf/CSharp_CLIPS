@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mommosoft.ExpertSystem;
 
@@ -14,10 +7,12 @@ namespace CSharp_CLIPS
     public partial class FrmModuleC : Form
     {
         private Clips _clips;
-        public FrmModuleC()
+        private FrmModuleA frmA;
+        public FrmModuleC(FrmModuleA refFormA)
         {
             InitializeComponent();
             _clips = Clips.GetInstance();
+            this.frmA = refFormA;
 
         }
         private bool AllFieldsFull()
@@ -91,6 +86,10 @@ namespace CSharp_CLIPS
             }
             else { MessageBox.Show("Проверьте заполненность полей!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
-        
+
+        private void tsClearForm_Click(object sender, EventArgs e)
+        {
+            this.frmA.CleanAllBoxesIn(this);
+        }
     }
 }

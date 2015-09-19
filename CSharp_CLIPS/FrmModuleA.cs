@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-//using System.Windows.Controls;
-using System.Text;
-using System.IO;
 using Mommosoft.ExpertSystem;
 
 
@@ -11,7 +8,7 @@ namespace CSharp_CLIPS
 {
     public partial class FrmModuleA : Form
     {
-        public FrmModuleA refForm;
+        private FrmModuleA refFormA;
         private Clips _clips;
         public FrmModuleA()
         {
@@ -210,6 +207,6 @@ namespace CSharp_CLIPS
             }
         }
     }
-    }
+ }
     
 

@@ -15,11 +15,15 @@ namespace CSharp_CLIPS
     public partial class FrmModuleB : Form
     {
         private Clips _clips;
-        public FrmModuleB(FrmModuleA refForm)
+        private FrmModuleA frmA;
+        private FrmModuleB refFormB;
+        public FrmModuleB(FrmModuleA refFormA)
         {
             InitializeComponent();
             _clips = Clips.GetInstance();
+            this.frmA = refFormA;
         }
+        
         private bool AllFieldsFull()
         {
             if (comboKvalToch.SelectedIndex != -1 && comboTipProiz.SelectedIndex != -1 && txtGlubRez.Text !="" &&
@@ -34,7 +38,7 @@ namespace CSharp_CLIPS
             if (allChk == true)
             {
                 this.Hide();
-                FrmModuleC frmModuleC = new FrmModuleC();
+                FrmModuleC frmModuleC = new FrmModuleC(frmA);
                 frmModuleC.Show();
             }
             else { MessageBox.Show("Проверьте заполненность полей!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -111,7 +115,7 @@ namespace CSharp_CLIPS
 
         public void tsClearForm_Click(object sender, EventArgs e)
         {
-            
+            this.frmA.CleanAllBoxesIn(this);
         }
     }
 }

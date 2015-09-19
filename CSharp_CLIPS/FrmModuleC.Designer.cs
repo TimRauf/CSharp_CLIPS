@@ -48,7 +48,8 @@
             this.grBoxButtons = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.очиститьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsClearForm = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsClearFacts = new System.Windows.Forms.ToolStripMenuItem();
             this.grBoxOutData.SuspendLayout();
             this.grBoxInData.SuspendLayout();
             this.grBoxButtons.SuspendLayout();
@@ -240,17 +241,25 @@
             // редактированиеToolStripMenuItem
             // 
             this.редактированиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.очиститьДанныеToolStripMenuItem});
+            this.tsClearForm,
+            this.tsClearFacts});
             this.редактированиеToolStripMenuItem.Name = "редактированиеToolStripMenuItem";
             this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.редактированиеToolStripMenuItem.Text = "Редактирование";
             this.редактированиеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
-            // очиститьДанныеToolStripMenuItem
+            // tsClearForm
             // 
-            this.очиститьДанныеToolStripMenuItem.Name = "очиститьДанныеToolStripMenuItem";
-            this.очиститьДанныеToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.очиститьДанныеToolStripMenuItem.Text = "Очистить данные";
+            this.tsClearForm.Name = "tsClearForm";
+            this.tsClearForm.Size = new System.Drawing.Size(170, 22);
+            this.tsClearForm.Text = "Очистить данные";
+            this.tsClearForm.Click += new System.EventHandler(this.tsClearForm_Click);
+            // 
+            // tsClearFacts
+            // 
+            this.tsClearFacts.Name = "tsClearFacts";
+            this.tsClearFacts.Size = new System.Drawing.Size(170, 22);
+            this.tsClearFacts.Text = "Удалить факты";
             // 
             // FrmModuleC
             // 
@@ -299,6 +308,7 @@
         private System.Windows.Forms.GroupBox grBoxInData;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem редактированиеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem очиститьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsClearForm;
+        private System.Windows.Forms.ToolStripMenuItem tsClearFacts;
     }
 }
