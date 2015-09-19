@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using Mommosoft.ExpertSystem;
@@ -15,7 +15,7 @@ namespace CSharp_CLIPS
     public partial class FrmModuleB : Form
     {
         private Clips _clips;
-        public FrmModuleB()
+        public FrmModuleB(FrmModuleA refForm)
         {
             InitializeComponent();
             _clips = Clips.GetInstance();
@@ -28,7 +28,7 @@ namespace CSharp_CLIPS
             else { return false; }
         }
         
-        private void NextStage_Click(object sender, EventArgs e)
+        private void btnNextStage_Click(object sender, EventArgs e)
         {
             bool allChk = AllFieldsFull();
             if (allChk == true)
@@ -49,7 +49,7 @@ namespace CSharp_CLIPS
             this.comboTipProiz.Items.Add(new SelectData(1, "Единичное"));
             this.comboTipProiz.Items.Add(new SelectData(2, "Серийное"));
             this.comboTipProiz.Items.Add(new SelectData(3, "Массовое"));
-            this.comboTipProiz.Items.Add(new SelectData(3, "Крупносерийное"));
+            this.comboTipProiz.Items.Add(new SelectData(4, "Крупносерийное"));
 
             this.comboKvalToch.Items.Add(new SelectData(6, "6"));
             this.comboKvalToch.Items.Add(new SelectData(7, "7"));
@@ -59,7 +59,7 @@ namespace CSharp_CLIPS
             this.comboKvalToch.Items.Add(new SelectData(11, "11"));
             this.comboKvalToch.Items.Add(new SelectData(12, "12"));
             this.comboKvalToch.Items.Add(new SelectData(13, "13"));
-            this.comboKvalToch.Items.Add(new SelectData(14, "14"));            
+            comboKvalToch.Items.Add(new SelectData(14, "14"));            
         }
         private bool OpenOutFile()
         {
@@ -71,7 +71,7 @@ namespace CSharp_CLIPS
             }
             else return false;
         }
-        private void RunB_Click(object sender, EventArgs e)
+        private void btnRunB_Click(object sender, EventArgs e)
         {
             bool fileOpened = OpenOutFile();
             bool check = AllFieldsFull();
@@ -84,8 +84,6 @@ namespace CSharp_CLIPS
                 CultureInfo ci = new CultureInfo("en-US");
                 floatVal1 = Convert.ToSingle(txtGlubRez.Text, ci).ToString("0.00",ci);
                 floatVal2 = Convert.ToSingle(txtPodRez.Text, ci).ToString("0.00",ci);
-                //MessageBox.Show(floatVal1 + "_" + floatVal2);
-                /* glubrez & podrez = float */
                 string[] currFrmSlots = { "TipProiz:" + selectedValueTipProiz.ToString(), "KvalToch:" + selectedValueKvalToch.ToString(), "SkorRez:" + txtSkorRez.Text, 
                                           "PodRez:" + floatVal2, "GlubRez:" + floatVal1, "VelPart:" + txtVelPart.Text };
 
@@ -100,6 +98,20 @@ namespace CSharp_CLIPS
                     txtPrintout.Text = resTxt;
                 }
             }
+        }
+        private void btnPrevStage_Click(object sender, EventArgs e)
+        {
+/*закрыть текущую форму
+открыть предыдущую(???)*/
+        }
+        private void tsClearFacts_Click(object sender, EventArgs e)
+        {
+            _clips.Reset();
+        }
+
+        public void tsClearForm_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

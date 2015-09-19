@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
+//using System.Windows.Controls;
 using System.Text;
 using System.IO;
 using Mommosoft.ExpertSystem;
@@ -11,6 +11,7 @@ namespace CSharp_CLIPS
 {
     public partial class FrmModuleA : Form
     {
+        public FrmModuleA refForm;
         private Clips _clips;
         public FrmModuleA()
         {
@@ -34,8 +35,9 @@ namespace CSharp_CLIPS
             bool check = AllFieldsFull();
             if ( check == true && txtPrintout.Text != "")
             {
+                
                 this.Hide();
-                FrmModuleB frmModuleB = new FrmModuleB();
+                FrmModuleB frmModuleB = new FrmModuleB(this);
                 frmModuleB.Show();
             }
         }
@@ -45,9 +47,9 @@ namespace CSharp_CLIPS
             FillCombo();
             _clips.Load("myProgram.clp");
             string _envDir = System.Environment.CurrentDirectory + "\\myFactsPrint.txt";
-            if (File.Exists(_envDir) == true)
+            if (System.IO.File.Exists(_envDir) == true)
             {
-                File.Delete(_envDir);
+                System.IO.File.Delete(_envDir);
             }
         }
 
@@ -181,6 +183,33 @@ namespace CSharp_CLIPS
         {
             MessageBox.Show("Author:Tim Rauf,Khusnutdinova G.", "О программе", MessageBoxButtons.OK);
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void tsClearFacts_Click(object sender, EventArgs e)
+        {
+            _clips.Reset();
+        }
+
+        private void tsClearForm_Click(object sender, EventArgs e)
+        {
+            CleanAllBoxesIn(this);
+        }
+
+        public void CleanAllBoxesIn(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if ((c.GetType() == typeof(TextBox)) || (c.GetType() == typeof(ComboBox)))
+                    c.Text = string.Empty;
+                if (c.GetType() == typeof(GroupBox))
+                    CleanAllBoxesIn(c);
+            }
+        }
+    }
     }
     
-}
+

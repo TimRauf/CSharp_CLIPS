@@ -52,14 +52,14 @@
             this.grBoxOutData = new System.Windows.Forms.GroupBox();
             this.RunA = new System.Windows.Forms.Button();
             this.NextStage = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.Файл = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Редактирование = new System.Windows.Forms.ToolStripMenuItem();
-            this.очиститьФормуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Справка = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.File = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.Edit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsClearForm = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsClearFacts = new System.Windows.Forms.ToolStripMenuItem();
+            this.About = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.grBoxButtons = new System.Windows.Forms.GroupBox();
             this.grBoxInData = new System.Windows.Forms.GroupBox();
             this.grBoxOutData.SuspendLayout();
@@ -299,77 +299,77 @@
             this.NextStage.UseVisualStyleBackColor = true;
             this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
             // 
-            // button1
-            // 
-            this.button1.Image = global::CSharp_CLIPS.Properties.Resources.arrow_back_color_32xLG;
-            this.button1.Location = new System.Drawing.Point(278, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 56);
-            this.button1.TabIndex = 24;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Файл,
-            this.Редактирование,
-            this.Справка});
+            this.File,
+            this.Edit,
+            this.About});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(479, 24);
             this.menuStrip1.TabIndex = 25;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // Файл
+            // File
             // 
-            this.Файл.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выходToolStripMenuItem});
-            this.Файл.Name = "Файл";
-            this.Файл.Size = new System.Drawing.Size(48, 20);
-            this.Файл.Text = "Файл";
-            this.Файл.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMItemExit});
+            this.File.Name = "File";
+            this.File.Size = new System.Drawing.Size(48, 20);
+            this.File.Text = "Файл";
+            this.File.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
-            // выходToolStripMenuItem
+            // tsMItemExit
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.выходToolStripMenuItem.Text = "Выход (Alt+X)";
+            this.tsMItemExit.Name = "tsMItemExit";
+            this.tsMItemExit.Size = new System.Drawing.Size(152, 22);
+            this.tsMItemExit.Text = "Выход";
+            this.tsMItemExit.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
-            // Редактирование
+            // Edit
             // 
-            this.Редактирование.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.очиститьФормуToolStripMenuItem});
-            this.Редактирование.Name = "Редактирование";
-            this.Редактирование.Size = new System.Drawing.Size(108, 20);
-            this.Редактирование.Text = "Редактирование";
-            this.Редактирование.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.Edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsClearForm,
+            this.tsClearFacts});
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(108, 20);
+            this.Edit.Text = "Редактирование";
+            this.Edit.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
-            // очиститьФормуToolStripMenuItem
+            // tsClearForm
             // 
-            this.очиститьФормуToolStripMenuItem.Name = "очиститьФормуToolStripMenuItem";
-            this.очиститьФормуToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.очиститьФормуToolStripMenuItem.Text = "Очистить данные (Ctrl+E)";
+            this.tsClearForm.Name = "tsClearForm";
+            this.tsClearForm.Size = new System.Drawing.Size(170, 22);
+            this.tsClearForm.Text = "Очистить данные";
+            this.tsClearForm.Click += new System.EventHandler(this.tsClearForm_Click);
             // 
-            // Справка
+            // tsClearFacts
             // 
-            this.Справка.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.Справка.Name = "Справка";
-            this.Справка.Size = new System.Drawing.Size(65, 20);
-            this.Справка.Text = "Справка";
-            this.Справка.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.tsClearFacts.Name = "tsClearFacts";
+            this.tsClearFacts.Size = new System.Drawing.Size(170, 22);
+            this.tsClearFacts.Text = "Удалить факты";
+            this.tsClearFacts.Click += new System.EventHandler(this.tsClearFacts_Click);
             // 
-            // aboutToolStripMenuItem
+            // About
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About (F1)";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.About.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsAbout});
+            this.About.Name = "About";
+            this.About.Size = new System.Drawing.Size(65, 20);
+            this.About.Text = "Справка";
+            this.About.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            // 
+            // tsAbout
+            // 
+            this.tsAbout.Name = "tsAbout";
+            this.tsAbout.Size = new System.Drawing.Size(149, 22);
+            this.tsAbout.Text = "О программе";
+            this.tsAbout.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // grBoxButtons
             // 
             this.grBoxButtons.Controls.Add(this.NextStage);
-            this.grBoxButtons.Controls.Add(this.button1);
             this.grBoxButtons.Controls.Add(this.RunA);
             this.grBoxButtons.Location = new System.Drawing.Point(15, 432);
             this.grBoxButtons.Name = "grBoxButtons";
@@ -457,16 +457,16 @@
         private System.Windows.Forms.TextBox txtPrintout;
         private System.Windows.Forms.GroupBox grBoxOutData;
         private System.Windows.Forms.Button RunA;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem Файл;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Редактирование;
-        private System.Windows.Forms.ToolStripMenuItem очиститьФормуToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Справка;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem File;
+        private System.Windows.Forms.ToolStripMenuItem tsMItemExit;
+        private System.Windows.Forms.ToolStripMenuItem Edit;
+        private System.Windows.Forms.ToolStripMenuItem tsClearForm;
+        private System.Windows.Forms.ToolStripMenuItem About;
+        private System.Windows.Forms.ToolStripMenuItem tsAbout;
         private System.Windows.Forms.GroupBox grBoxButtons;
         private System.Windows.Forms.GroupBox grBoxInData;
+        private System.Windows.Forms.ToolStripMenuItem tsClearFacts;
     }
 }
 

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.NextStage = new System.Windows.Forms.Button();
+            this.btnNextStage = new System.Windows.Forms.Button();
             this.grBoxOutData = new System.Windows.Forms.GroupBox();
             this.txtPrintout = new System.Windows.Forms.TextBox();
-            this.RunB = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRunB = new System.Windows.Forms.Button();
+            this.btnPrevStage = new System.Windows.Forms.Button();
             this.comboTipProiz = new System.Windows.Forms.ComboBox();
             this.comboKvalToch = new System.Windows.Forms.ComboBox();
             this.txtSkorRez = new System.Windows.Forms.TextBox();
@@ -48,7 +48,8 @@
             this.grBoxInData = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.очиститьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.очиститьДанныеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsClearForm = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsClearFacts = new System.Windows.Forms.ToolStripMenuItem();
             this.grBoxButtons = new System.Windows.Forms.GroupBox();
             this.grBoxOutData.SuspendLayout();
             this.grBoxInData.SuspendLayout();
@@ -56,15 +57,15 @@
             this.grBoxButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // NextStage
+            // btnNextStage
             // 
-            this.NextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
-            this.NextStage.Location = new System.Drawing.Point(266, 14);
-            this.NextStage.Name = "NextStage";
-            this.NextStage.Size = new System.Drawing.Size(55, 55);
-            this.NextStage.TabIndex = 12;
-            this.NextStage.UseVisualStyleBackColor = true;
-            this.NextStage.Click += new System.EventHandler(this.NextStage_Click);
+            this.btnNextStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_Forward_color_32xLG;
+            this.btnNextStage.Location = new System.Drawing.Point(266, 14);
+            this.btnNextStage.Name = "btnNextStage";
+            this.btnNextStage.Size = new System.Drawing.Size(55, 55);
+            this.btnNextStage.TabIndex = 12;
+            this.btnNextStage.UseVisualStyleBackColor = true;
+            this.btnNextStage.Click += new System.EventHandler(this.btnNextStage_Click);
             // 
             // grBoxOutData
             // 
@@ -86,24 +87,25 @@
             this.txtPrintout.Size = new System.Drawing.Size(315, 267);
             this.txtPrintout.TabIndex = 0;
             // 
-            // RunB
+            // btnRunB
             // 
-            this.RunB.Image = global::CSharp_CLIPS.Properties.Resources.gear_run_48;
-            this.RunB.Location = new System.Drawing.Point(204, 14);
-            this.RunB.Name = "RunB";
-            this.RunB.Size = new System.Drawing.Size(55, 55);
-            this.RunB.TabIndex = 16;
-            this.RunB.UseVisualStyleBackColor = true;
-            this.RunB.Click += new System.EventHandler(this.RunB_Click);
+            this.btnRunB.Image = global::CSharp_CLIPS.Properties.Resources.gear_run_48;
+            this.btnRunB.Location = new System.Drawing.Point(204, 14);
+            this.btnRunB.Name = "btnRunB";
+            this.btnRunB.Size = new System.Drawing.Size(55, 55);
+            this.btnRunB.TabIndex = 16;
+            this.btnRunB.UseVisualStyleBackColor = true;
+            this.btnRunB.Click += new System.EventHandler(this.btnRunB_Click);
             // 
-            // button1
+            // btnPrevStage
             // 
-            this.button1.Image = global::CSharp_CLIPS.Properties.Resources.arrow_back_color_32xLG;
-            this.button1.Location = new System.Drawing.Point(142, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 55);
-            this.button1.TabIndex = 17;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPrevStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_back_color_32xLG;
+            this.btnPrevStage.Location = new System.Drawing.Point(142, 14);
+            this.btnPrevStage.Name = "btnPrevStage";
+            this.btnPrevStage.Size = new System.Drawing.Size(55, 55);
+            this.btnPrevStage.TabIndex = 17;
+            this.btnPrevStage.UseVisualStyleBackColor = true;
+            this.btnPrevStage.Click += new System.EventHandler(this.btnPrevStage_Click);
             // 
             // comboTipProiz
             // 
@@ -243,25 +245,34 @@
             // очиститьДанныеToolStripMenuItem
             // 
             this.очиститьДанныеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.очиститьДанныеToolStripMenuItem1});
+            this.tsClearForm,
+            this.tsClearFacts});
             this.очиститьДанныеToolStripMenuItem.Name = "очиститьДанныеToolStripMenuItem";
             this.очиститьДанныеToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.очиститьДанныеToolStripMenuItem.Text = "Редактирование";
             this.очиститьДанныеToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
-            // очиститьДанныеToolStripMenuItem1
+            // tsClearForm
             // 
-            this.очиститьДанныеToolStripMenuItem1.Name = "очиститьДанныеToolStripMenuItem1";
-            this.очиститьДанныеToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
-            this.очиститьДанныеToolStripMenuItem1.Text = "Очистить данные";
-            this.очиститьДанныеToolStripMenuItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsClearForm.Name = "tsClearForm";
+            this.tsClearForm.Size = new System.Drawing.Size(167, 22);
+            this.tsClearForm.Text = "Очистить форму";
+            this.tsClearForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsClearForm.Click += new System.EventHandler(this.tsClearForm_Click);
+            // 
+            // tsClearFacts
+            // 
+            this.tsClearFacts.Name = "tsClearFacts";
+            this.tsClearFacts.Size = new System.Drawing.Size(167, 22);
+            this.tsClearFacts.Text = "Удалить факты";
+            this.tsClearFacts.Click += new System.EventHandler(this.tsClearFacts_Click);
             // 
             // grBoxButtons
             // 
             this.grBoxButtons.BackColor = System.Drawing.Color.Transparent;
-            this.grBoxButtons.Controls.Add(this.NextStage);
-            this.grBoxButtons.Controls.Add(this.button1);
-            this.grBoxButtons.Controls.Add(this.RunB);
+            this.grBoxButtons.Controls.Add(this.btnNextStage);
+            this.grBoxButtons.Controls.Add(this.btnPrevStage);
+            this.grBoxButtons.Controls.Add(this.btnRunB);
             this.grBoxButtons.Location = new System.Drawing.Point(12, 492);
             this.grBoxButtons.Name = "grBoxButtons";
             this.grBoxButtons.Size = new System.Drawing.Size(327, 75);
@@ -294,11 +305,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button NextStage;
+        private System.Windows.Forms.Button btnNextStage;
         private System.Windows.Forms.GroupBox grBoxOutData;
         private System.Windows.Forms.TextBox txtPrintout;
-        private System.Windows.Forms.Button RunB;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRunB;
+        private System.Windows.Forms.Button btnPrevStage;
         private System.Windows.Forms.ComboBox comboTipProiz;
         private System.Windows.Forms.ComboBox comboKvalToch;
         private System.Windows.Forms.TextBox txtSkorRez;
@@ -314,7 +325,8 @@
         private System.Windows.Forms.GroupBox grBoxInData;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem очиститьДанныеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem очиститьДанныеToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsClearForm;
         private System.Windows.Forms.GroupBox grBoxButtons;
+        private System.Windows.Forms.ToolStripMenuItem tsClearFacts;
     }
 }
