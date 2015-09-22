@@ -16,7 +16,6 @@ namespace CSharp_CLIPS
     {
         private Clips _clips;
         private FrmModuleA frmA;
-        private FrmModuleB refFormB;
         public FrmModuleB(FrmModuleA refFormA)
         {
             InitializeComponent();
@@ -38,7 +37,7 @@ namespace CSharp_CLIPS
             if (allChk == true)
             {
                 this.Hide();
-                FrmModuleC frmModuleC = new FrmModuleC(frmA);
+                FrmModuleC frmModuleC = new FrmModuleC(frmA,this);
                 frmModuleC.Show();
             }
             else { MessageBox.Show("Проверьте заполненность полей!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -75,7 +74,7 @@ namespace CSharp_CLIPS
             }
             else return false;
         }
-        private void btnRunB_Click(object sender, EventArgs e)
+        public void btnRunB_Click(object sender, EventArgs e)
         {
             bool fileOpened = OpenOutFile();
             bool check = AllFieldsFull();
@@ -105,12 +104,15 @@ namespace CSharp_CLIPS
         }
         private void btnPrevStage_Click(object sender, EventArgs e)
         {
-/*закрыть текущую форму
-открыть предыдущую(???)*/
+            //this.Close();
+            this.Hide();
+            this.frmA.Show();
+
         }
         private void tsClearFacts_Click(object sender, EventArgs e)
         {
             _clips.Reset();
+            
         }
 
         public void tsClearForm_Click(object sender, EventArgs e)

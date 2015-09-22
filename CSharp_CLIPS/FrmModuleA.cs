@@ -6,9 +6,9 @@ using Mommosoft.ExpertSystem;
 
 namespace CSharp_CLIPS
 {
-    public partial class FrmModuleA : Form
+    public partial class FrmModuleA:Form
     {
-        private FrmModuleA refFormA;
+        //private FrmModuleA refFormA;
         private Clips _clips;
         public FrmModuleA()
         {
@@ -181,7 +181,7 @@ namespace CSharp_CLIPS
             MessageBox.Show("Author:Tim Rauf,Khusnutdinova G.", "О программе", MessageBoxButtons.OK);
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

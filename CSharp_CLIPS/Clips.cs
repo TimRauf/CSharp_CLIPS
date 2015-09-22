@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Mommosoft.ExpertSystem;
-using System.Windows.Forms;
-using MS.Internal;
 
 
 namespace CSharp_CLIPS

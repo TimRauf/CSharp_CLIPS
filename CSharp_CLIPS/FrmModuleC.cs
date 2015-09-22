@@ -8,11 +8,13 @@ namespace CSharp_CLIPS
     {
         private Clips _clips;
         private FrmModuleA frmA;
-        public FrmModuleC(FrmModuleA refFormA)
+        private FrmModuleB frmB;
+        public FrmModuleC(FrmModuleA refFormA,FrmModuleB refFormB)
         {
             InitializeComponent();
             _clips = Clips.GetInstance();
             this.frmA = refFormA;
+            this.frmB = refFormB;
 
         }
         private bool AllFieldsFull()
@@ -90,6 +92,12 @@ namespace CSharp_CLIPS
         private void tsClearForm_Click(object sender, EventArgs e)
         {
             this.frmA.CleanAllBoxesIn(this);
+        }
+
+        private void btnPrevStage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmB.Show();
         }
     }
 }

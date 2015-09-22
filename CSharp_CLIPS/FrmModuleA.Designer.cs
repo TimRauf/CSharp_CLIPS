@@ -325,7 +325,7 @@
             this.tsMItemExit.Name = "tsMItemExit";
             this.tsMItemExit.Size = new System.Drawing.Size(152, 22);
             this.tsMItemExit.Text = "Выход";
-            this.tsMItemExit.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            this.tsMItemExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Edit
             // 

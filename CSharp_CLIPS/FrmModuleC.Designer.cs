@@ -50,6 +50,7 @@
             this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsClearForm = new System.Windows.Forms.ToolStripMenuItem();
             this.tsClearFacts = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPrevStage = new System.Windows.Forms.Button();
             this.grBoxOutData.SuspendLayout();
             this.grBoxInData.SuspendLayout();
             this.grBoxButtons.SuspendLayout();
@@ -220,6 +221,7 @@
             // grBoxButtons
             // 
             this.grBoxButtons.BackColor = System.Drawing.Color.Transparent;
+            this.grBoxButtons.Controls.Add(this.btnPrevStage);
             this.grBoxButtons.Controls.Add(this.btnExit);
             this.grBoxButtons.Controls.Add(this.RunC);
             this.grBoxButtons.Location = new System.Drawing.Point(12, 642);
@@ -260,6 +262,16 @@
             this.tsClearFacts.Name = "tsClearFacts";
             this.tsClearFacts.Size = new System.Drawing.Size(170, 22);
             this.tsClearFacts.Text = "Удалить факты";
+            // 
+            // btnPrevStage
+            // 
+            this.btnPrevStage.Image = global::CSharp_CLIPS.Properties.Resources.arrow_back_color_32xLG;
+            this.btnPrevStage.Location = new System.Drawing.Point(263, 16);
+            this.btnPrevStage.Name = "btnPrevStage";
+            this.btnPrevStage.Size = new System.Drawing.Size(55, 55);
+            this.btnPrevStage.TabIndex = 18;
+            this.btnPrevStage.UseVisualStyleBackColor = true;
+            this.btnPrevStage.Click += new System.EventHandler(this.btnPrevStage_Click);
             // 
             // FrmModuleC
             // 
@@ -310,5 +322,6 @@
         private System.Windows.Forms.ToolStripMenuItem редактированиеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsClearForm;
         private System.Windows.Forms.ToolStripMenuItem tsClearFacts;
+        private System.Windows.Forms.Button btnPrevStage;
     }
 }
