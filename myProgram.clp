@@ -1,4 +1,4 @@
-/**/
+
 (deftemplate A_Dann 
 (slot DetName)
 (slot GabDetSh)
