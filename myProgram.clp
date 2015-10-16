@@ -1,3 +1,4 @@
+/**/
 (deftemplate A_Dann 
 (slot DetName)
 (slot GabDetSh)
@@ -18,145 +19,145 @@
 (deftemplate A_Ai0 
 (slot Ai0 (type INTEGER)))
 
-(defrule A_TrebChertTP  ; Правило определения требований заданных чертежом 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule A_TrebChertTP  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГІГ°ГҐГЎГ®ГўГ Г­ГЁГ© Г§Г Г¤Г Г­Г­Г»Гµ Г·ГҐГ°ГІГҐГ¦Г®Г¬ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass)(DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?DetTip 2)) ; Тип детали корпусная
-(test (<= ?GabDetSh 500)) ; Ширина детали
-(test (<= ?GabDetDl 500)) ; Длина детали
-(test (<= ?GabDetV 100)) ; Высота детали
+(test (= ?DetTip 2)) ; Г’ГЁГЇ Г¤ГҐГІГ Г«ГЁ ГЄГ®Г°ГЇГіГ±Г­Г Гї
+(test (<= ?GabDetSh 500)) ; ГГЁГ°ГЁГ­Г  Г¤ГҐГІГ Г«ГЁ
+(test (<= ?GabDetDl 500)) ; Г„Г«ГЁГ­Г  Г¤ГҐГІГ Г«ГЁ
+(test (<= ?GabDetV 100)) ; Г‚Г»Г±Г®ГІГ  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Деталь корпусного типа"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г„ГҐГІГ Г«Гј ГЄГ®Г°ГЇГіГ±Г­Г®ГЈГ® ГІГЁГЇГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (A_VarTP (VarTP Korp))))
 
 
-(defrule A_TrebChertTP2 ; Правило определения характеристики объекта обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule A_TrebChertTP2 ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГЁ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?DetTip 1)) ; Тип детали тело вращения
-(test (<= ?GabDetSh 250)) ; Ширина детали
-(test (<= ?GabDetDl 500)) ; Длина детали
+(test (= ?DetTip 1)) ; Г’ГЁГЇ Г¤ГҐГІГ Г«ГЁ ГІГҐГ«Г® ГўГ°Г Г№ГҐГ­ГЁГї
+(test (<= ?GabDetSh 250)) ; ГГЁГ°ГЁГ­Г  Г¤ГҐГІГ Г«ГЁ
+(test (<= ?GabDetDl 500)) ; Г„Г«ГЁГ­Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Деталь типа тело вращения "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г„ГҐГІГ Г«Гј ГІГЁГЇГ  ГІГҐГ«Г® ГўГ°Г Г№ГҐГ­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (A_VarTP (VarTP TeloVr))))
 
-(defrule A_TrebChertTP3 ; Правило определения характеристики объекта обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule A_TrebChertTP3 ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГЁ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?DetTip 3)) ; Тип детали пруток
-(test (<= ?GabDetSh 250)) ; Ширина детали
-(test (<= ?GabDetDl 500)) ; Длина детали
+(test (= ?DetTip 3)) ; Г’ГЁГЇ Г¤ГҐГІГ Г«ГЁ ГЇГ°ГіГІГ®ГЄ
+(test (<= ?GabDetSh 250)) ; ГГЁГ°ГЁГ­Г  Г¤ГҐГІГ Г«ГЁ
+(test (<= ?GabDetDl 500)) ; Г„Г«ГЁГ­Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Деталь типа пруток "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г„ГҐГІГ Г«Гј ГІГЁГЇГ  ГЇГ°ГіГІГ®ГЄ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (A_VarTP (VarTP Prut))))
 
 
-(defrule B_HarObObrTP  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 1)) ; Материал заготовки
-(or (test (= ?SposPol 3)) (test (= ?SposPol 5)))  ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 1)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(or (test (= ?SposPol 3)) (test (= ?SposPol 5)))  ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет минимальный припуск на обработку"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г»Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г®ГЎГ°Г ГЎГ®ГІГЄГі"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP minObr)))
 (assert (A_Ai0 (Ai0 1))))
 
 
-(defrule B_HarObObrTP2  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP2  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 2)) ; Материал заготовки
-(or (test (= ?SposPol 3)) (test (= ?SposPol 5)))  ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 2)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(or (test (= ?SposPol 3)) (test (= ?SposPol 5)))  ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет минимальный припуск на обработку"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г»Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г®ГЎГ°Г ГЎГ®ГІГЄГі"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP minObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP3  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP3  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 3)) ; Материал заготовки
-(or (test (= ?SposPol 3)) (test (= ?SposPol 5)))  ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 3)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(or (test (= ?SposPol 3)) (test (= ?SposPol 5)))  ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет минимальный припуск на обработку"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г»Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г®ГЎГ°Г ГЎГ®ГІГЄГі"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP minObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP4  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP4  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 1)) ; Материал заготовки
-(test (= ?SposPol 1)) ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 1)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (= ?SposPol 1)) ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет припуск на доработку, требуется повышенная механообработка"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¤Г®Г°Г ГЎГ®ГІГЄГі, ГІГ°ГҐГЎГіГҐГІГ±Гї ГЇГ®ГўГ»ГёГҐГ­Г­Г Гї Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP maxObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP5  ; Правило определения характеристик объекта обработки 
-(declare (salience 10) ) ; Приоритет правила <+10>
+(defrule B_HarObObrTP5  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10) ) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 2)) ; Материал заготовки
-(test (= ?SposPol 1)) ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 2)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (= ?SposPol 1)) ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет припуск на доработку, требуется повышенная механообработка"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¤Г®Г°Г ГЎГ®ГІГЄГі, ГІГ°ГҐГЎГіГҐГІГ±Гї ГЇГ®ГўГ»ГёГҐГ­Г­Г Гї Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP maxObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP6  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP6  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 3)) ; Материал заготовки
-(test (= ?SposPol 1)) ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 3)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (= ?SposPol 1)) ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет припуск на доработку, требуется повышенная механообработка"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¤Г®Г°Г ГЎГ®ГІГЄГі, ГІГ°ГҐГЎГіГҐГІГ±Гї ГЇГ®ГўГ»ГёГҐГ­Г­Г Гї Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP maxObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP7  ; Правило определения характеристик объекта обработки 
-(declare (salience 10) ) ; Приоритет правила <+10>
+(defrule B_HarObObrTP7  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10) ) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 1)) ; Материал заготовки
-(or (test (= ?SposPol 2)) (test (= ?SposPol 4)))  ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 1)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(or (test (= ?SposPol 2)) (test (= ?SposPol 4)))  ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет припуск на доработку, требуется средняя механообработка"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¤Г®Г°Г ГЎГ®ГІГЄГі, ГІГ°ГҐГЎГіГҐГІГ±Гї Г±Г°ГҐГ¤Г­ГїГї Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP medObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP8  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP8  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 2)) ; Материал заготовки
-(or (test (= ?SposPol 2)) (test (= ?SposPol 4)))  ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 2)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(or (test (= ?SposPol 2)) (test (= ?SposPol 4)))  ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет припуск на доработку, требуется средняя механообработка"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¤Г®Г°Г ГЎГ®ГІГЄГі, ГІГ°ГҐГЎГіГҐГІГ±Гї Г±Г°ГҐГ¤Г­ГїГї Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP medObr)))
 (assert (A_Ai0 (Ai0 1))))
 
-(defrule B_HarObObrTP9  ; Правило определения характеристик объекта обработки 
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule B_HarObObrTP9  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г®ГЎГєГҐГЄГІГ  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ 
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (A_Dann (DetName ?DetName) (GabDetDl ?GabDetDl) (GabDetSh ?GabDetSh) (GabDetV ?GabDetV) (DetTip ?DetTip) (ZagMat ?ZagMat) (SposPol ?SposPol) (ZagMass ?ZagMass) (DetMass ?DetMass) (StanEm ?StanEm) (KolTexMod ?KolTexMod)) 
-(test (= ?ZagMat 3)) ; Материал заготовки
-(or (test (= ?SposPol 2)) (test (= ?SposPol 4)))  ; Способ получения
-(test (<= ?ZagMass 500)) ; Масса заготовки
-(test (<= ?DetMass 500)) ; Масса детали
+(test (= ?ZagMat 3)) ; ГЊГ ГІГҐГ°ГЁГ Г« Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(or (test (= ?SposPol 2)) (test (= ?SposPol 4)))  ; Г‘ГЇГ®Г±Г®ГЎ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї
+(test (<= ?ZagMass 500)) ; ГЊГ Г±Г±Г  Г§Г ГЈГ®ГІГ®ГўГЄГЁ
+(test (<= ?DetMass 500)) ; ГЊГ Г±Г±Г  Г¤ГҐГІГ Г«ГЁ
 =>
-(printout myData crlf "Заготовка имеет припуск на доработку, требуется средняя механообработка"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¤Г®Г°Г ГЎГ®ГІГЄГі, ГІГ°ГҐГЎГіГҐГІГ±Гї Г±Г°ГҐГ¤Г­ГїГї Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (B_VarTP (VarTP medObr)))
 (assert (A_Ai0 (Ai0 1))))
 
@@ -175,267 +176,267 @@
 (deftemplate C_Ai0
 (slot Ai0 (type INTEGER)))
 
-(defrule C_KompCredTexOcn  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(test (= ?TipProiz 1)) ; тип производства
-(test (>= ?KvalToch 10))  ; квалитет точности
-(test (>= ?VelPart 10))  ; величина партии
+(test (= ?TipProiz 1)) ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(test (>= ?KvalToch 10))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10))  ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf "Универсальный станок (U) Н-нормальной точности (N)"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ (U) ГЌ-Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (N)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor UN))))
 
 
 
-(defrule C_KompCredTexOcn2  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn2  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
-(test (= ?TipProiz 2)) ; тип производства
-(test (>= ?KvalToch 10))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(test (= ?TipProiz 2)) ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(test (>= ?KvalToch 10))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
 =>
-(printout myData crlf "Станок широкого назначения (Sh) Н-нормальной точности (N)"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї (Sh) ГЌ-Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (N)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor ShN))))
 
-(defrule C_KompCredTexOcn3  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn3  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(or (test (= ?TipProiz 3)) (test (= ?TipProiz 4))) ; тип производства
-(test (>= ?KvalToch 10))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(or (test (= ?TipProiz 3)) (test (= ?TipProiz 4))) ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(test (>= ?KvalToch 10))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf "Специализированный станок (С) Н-нормальной точности (N)"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ Г­Г®ГЄ (Г‘) ГЌ-Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (N)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor CN))))
 
-(defrule C_KompCredTexOcn4  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn4  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(or (test (= ?TipProiz 3)) (test (= ?TipProiz 4))) ; тип производства
-(or (test (= ?KvalToch 8)) (test (= ?KvalToch 9)))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(or (test (= ?TipProiz 3)) (test (= ?TipProiz 4))) ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(or (test (= ?KvalToch 8)) (test (= ?KvalToch 9)))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf "Специализированный станок (С) П-повышенной точности (P)"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ Г­Г®ГЄ (Г‘) ГЏ-ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (P)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor CP))))
 
-(defrule C_KompCredTexOcn5  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn5  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(test (= ?TipProiz 2)) ; тип производства
-(or (test (= ?KvalToch 8)) (test (= ?KvalToch 9)))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(test (= ?TipProiz 2)) ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(or (test (= ?KvalToch 8)) (test (= ?KvalToch 9)))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf " Станок широкого назначения (Sh) П-повышенной точности (P)"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї (Sh) ГЏ-ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (P)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor ShP))))
 
-(defrule C_KompCredTexOcn6  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn6  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
- (test (= ?TipProiz 1))  ; тип производства
-(or (test (= ?KvalToch 8)) (test (= ?KvalToch 9)))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+ (test (= ?TipProiz 1))  ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(or (test (= ?KvalToch 8)) (test (= ?KvalToch 9)))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf " Универсальный станок (U) П-повышенной точности (P)"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ (U) ГЏ-ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (P)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor UP))))
 
-(defrule C_KompCredTexOcn7  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn7  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(test (= ?TipProiz 1))  ; тип производства
-(or (test (= ?KvalToch 6)) (test (= ?KvalToch 7)))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(test (= ?TipProiz 1))  ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(or (test (= ?KvalToch 6)) (test (= ?KvalToch 7)))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf " Универсальный станок (U) S-высокой точности (S)"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ (U) S-ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (S)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor US))))
 
-(defrule C_KompCredTexOcn8  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn8  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(test (= ?TipProiz 2))  ; тип производства
-(or (test (= ?KvalToch 6)) (test (= ?KvalToch 7)))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(test (= ?TipProiz 2))  ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(or (test (= ?KvalToch 6)) (test (= ?KvalToch 7)))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf " Станок широкого назначения (Sh) S-высокой точности (S)"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї (Sh) S-ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (S)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor ShS))))
 
-(defrule C_KompCredTexOcn9  ; Правило определения комплекса средств технологического оснащения
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule C_KompCredTexOcn9  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГЄГ®Г¬ГЇГ«ГҐГЄГ±Г  Г±Г°ГҐГ¤Г±ГІГў ГІГҐГµГ­Г®Г«Г®ГЈГЁГ·ГҐГ±ГЄГ®ГЈГ® Г®Г±Г­Г Г№ГҐГ­ГЁГї
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (or
 (or (A_VarTP (VarTP TeloVr)) (A_VarTP (VarTP Korp)))
 (A_VarTP (VarTP Prut)))
-(or (test (= ?TipProiz 3)) (test (= ?TipProiz 4))) ; тип производства
-(or (test (= ?KvalToch 6)) (test (= ?KvalToch 7)))  ; квалитет точности
-(test (>= ?VelPart 10)) ; величина партии
+(or (test (= ?TipProiz 3)) (test (= ?TipProiz 4))) ; ГІГЁГЇ ГЇГ°Г®ГЁГ§ГўГ®Г¤Г±ГІГўГ 
+(or (test (= ?KvalToch 6)) (test (= ?KvalToch 7)))  ; ГЄГўГ Г«ГЁГІГҐГІ ГІГ®Г·Г­Г®Г±ГІГЁ
+(test (>= ?VelPart 10)) ; ГўГҐГ«ГЁГ·ГЁГ­Г  ГЇГ Г°ГІГЁГЁ
 =>
-(printout myData crlf " Специализированный станок (С) S-высокой точности (S)"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ Г­Г®ГЄ (Г‘) S-ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ (S)"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_Obor (Obor CS))))
 
-(defrule F_HarProcObr  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP minObr))
-(test (>= ?SkorRez 100)) ; скорость резания
-(or (test (>= ?PodRez 0.1)) (test (<= ?PodRez 0.2)))  ; подача
-(test (<= ?GlubRez 1)) ; глубина резания
+(test (>= ?SkorRez 100)) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.1)) (test (<= ?PodRez 0.2)))  ; ГЇГ®Г¤Г Г·Г 
+(test (<= ?GlubRez 1)) ; ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf "Заготовка имеет максимально приближенную форму к детали, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  "  следовательно показатели шероховатости наилучшие, время обработки уменьшается, но увеличиваются затраты в связи с расходом инструмента "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ГЇГ°ГЁГЎГ«ГЁГ¦ГҐГ­Г­ГіГѕ ГґГ®Г°Г¬Гі ГЄ Г¤ГҐГІГ Г«ГЁ, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  "  Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­Г ГЁГ«ГіГ·ГёГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГіГ¬ГҐГ­ГјГёГ ГҐГІГ±Гї, Г­Г® ГіГўГҐГ«ГЁГ·ГЁГўГ ГѕГІГ±Гї Г§Г ГІГ°Г ГІГ» Гў Г±ГўГїГ§ГЁ Г± Г°Г Г±ГµГ®Г¤Г®Г¬ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ  "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 1.0)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr2  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr2  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP minObr))
-(and (test (<= ?SkorRez 99)) (test (>= ?SkorRez 60))) ; скорость резания
-(or (test (>= ?PodRez 0.21)) (test (<= ?PodRez 0.4)))  ; подача
-(or (test (>= ?GlubRez 1.1)) (test (<= ?GlubRez 3))); глубина резания
+(and (test (<= ?SkorRez 99)) (test (>= ?SkorRez 60))) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.21)) (test (<= ?PodRez 0.4)))  ; ГЇГ®Г¤Г Г·Г 
+(or (test (>= ?GlubRez 1.1)) (test (<= ?GlubRez 3))); ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет максимально приближенную форму к детали, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  "  следовательно показатели шероховатости в пределах нормы, время обработки среднее, затраты средние "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ГЇГ°ГЁГЎГ«ГЁГ¦ГҐГ­Г­ГіГѕ ГґГ®Г°Г¬Гі ГЄ Г¤ГҐГІГ Г«ГЁ, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  "  Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Гў ГЇГ°ГҐГ¤ГҐГ«Г Гµ Г­Г®Г°Г¬Г», ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ Г±Г°ГҐГ¤Г­ГҐГҐ, Г§Г ГІГ°Г ГІГ» Г±Г°ГҐГ¤Г­ГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.9)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr3  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr3  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP minObr))
-(and (test (<= ?SkorRez 59)) (test (>= ?SkorRez 20))) ; скорость резания
-(or (test (>= ?PodRez 0.41)) (test (<= ?PodRez 0.6)))  ; подача
-(or (test (>= ?GlubRez 3.1)) (test (<= ?GlubRez 6))); глубина резания
+(and (test (<= ?SkorRez 59)) (test (>= ?SkorRez 20))) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.41)) (test (<= ?PodRez 0.6)))  ; ГЇГ®Г¤Г Г·Г 
+(or (test (>= ?GlubRez 3.1)) (test (<= ?GlubRez 6))); ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет максимально приближенную форму к детали,
-скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  " следовательно показатели шероховатости низкие, время обработки  среднее, затраты низкие "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ГЇГ°ГЁГЎГ«ГЁГ¦ГҐГ­Г­ГіГѕ ГґГ®Г°Г¬Гі ГЄ Г¤ГҐГІГ Г«ГЁ,
+Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  " Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­ГЁГ§ГЄГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ  Г±Г°ГҐГ¤Г­ГҐГҐ, Г§Г ГІГ°Г ГІГ» Г­ГЁГ§ГЄГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.8)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr4  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr4  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP minObr))
-(test (<= ?SkorRez 19)) ; скорость резания
-(test (>= ?PodRez 0.61)) ; подача
-(test (>= ?GlubRez 6.1)) ; глубина резания
+(test (<= ?SkorRez 19)) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(test (>= ?PodRez 0.61)) ; ГЇГ®Г¤Г Г·Г 
+(test (>= ?GlubRez 6.1)) ; ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет максимально приближенную форму к детали, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  " следовательно показатели шероховатости низкие, время обработки  увеличивается, затраты низкие "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г® ГЇГ°ГЁГЎГ«ГЁГ¦ГҐГ­Г­ГіГѕ ГґГ®Г°Г¬Гі ГЄ Г¤ГҐГІГ Г«ГЁ, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  " Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­ГЁГ§ГЄГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ  ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГІГ±Гї, Г§Г ГІГ°Г ГІГ» Г­ГЁГ§ГЄГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.6)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr5  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr5  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP medObr))
-(test (>= ?SkorRez 100)) ; скорость резания
-(or (test (>= ?PodRez 0.1)) (test (<= ?PodRez 0.2)))  ; подача
-(test (<= ?GlubRez 1)) ; глубина резания
+(test (>= ?SkorRez 100)) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.1)) (test (<= ?PodRez 0.2)))  ; ГЇГ®Г¤Г Г·Г 
+(test (<= ?GlubRez 1)) ; ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  "  следовательно показатели шероховатости наилучшие, время обработки уменьшается, но увеличиваются затраты в связи с расходом инструмента "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  "  Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­Г ГЁГ«ГіГ·ГёГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГіГ¬ГҐГ­ГјГёГ ГҐГІГ±Гї, Г­Г® ГіГўГҐГ«ГЁГ·ГЁГўГ ГѕГІГ±Гї Г§Г ГІГ°Г ГІГ» Гў Г±ГўГїГ§ГЁ Г± Г°Г Г±ГµГ®Г¤Г®Г¬ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ  "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.8)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr6  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr6  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP medObr))
-(and (test (<= ?SkorRez 99)) (test (>= ?SkorRez 60))) ; скорость резания
-(or (test (>= ?PodRez 0.21)) (test (<= ?PodRez 0.4)))  ; подача
-(or (test (>= ?GlubRez 1.1)) (test (<= ?GlubRez 3))); глубина резания
+(and (test (<= ?SkorRez 99)) (test (>= ?SkorRez 60))) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.21)) (test (<= ?PodRez 0.4)))  ; ГЇГ®Г¤Г Г·Г 
+(or (test (>= ?GlubRez 1.1)) (test (<= ?GlubRez 3))); ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  "  следовательно показатели шероховатости в пределах нормы, время обработки среднее, затраты средние "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  "  Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Гў ГЇГ°ГҐГ¤ГҐГ«Г Гµ Г­Г®Г°Г¬Г», ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ Г±Г°ГҐГ¤Г­ГҐГҐ, Г§Г ГІГ°Г ГІГ» Г±Г°ГҐГ¤Г­ГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.7)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr7  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr7  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP medObr))
-(and (test (<= ?SkorRez 59)) (test (>= ?SkorRez 20))) ; скорость резания
-(or (test (>= ?PodRez 0.41)) (test (<= ?PodRez 0.6)))  ; подача
-(or (test (>= ?GlubRez 3.1)) (test (<= ?GlubRez 6))); глубина резания
+(and (test (<= ?SkorRez 59)) (test (>= ?SkorRez 20))) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.41)) (test (<= ?PodRez 0.6)))  ; ГЇГ®Г¤Г Г·Г 
+(or (test (>= ?GlubRez 3.1)) (test (<= ?GlubRez 6))); ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  " следовательно показатели шероховатости низкие, время обработки  среднее, затраты низкие "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  " Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­ГЁГ§ГЄГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ  Г±Г°ГҐГ¤Г­ГҐГҐ, Г§Г ГІГ°Г ГІГ» Г­ГЁГ§ГЄГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.6)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr8  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr8  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP medObr))
-(test (<= ?SkorRez 19)) ; скорость резания
-(test (>= ?PodRez 0.61)) ; подача
-(test (>= ?GlubRez 6.1)) ; глубина резания
+(test (<= ?SkorRez 19)) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(test (>= ?PodRez 0.61)) ; ГЇГ®Г¤Г Г·Г 
+(test (>= ?GlubRez 6.1)) ; ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  " следовательно показатели шероховатости низкие, время обработки  увеличивается, затраты низкие "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  " Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­ГЁГ§ГЄГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ  ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГІГ±Гї, Г§Г ГІГ°Г ГІГ» Г­ГЁГ§ГЄГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.5)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr9  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr9  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP maxObr))
-(test (>= ?SkorRez 100)) ; скорость резания
-(or (test (>= ?PodRez 0.1)) (test (<= ?PodRez 0.2)))  ; подача
-(test (<= ?GlubRez 1)) ; глубина резания
+(test (>= ?SkorRez 100)) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.1)) (test (<= ?PodRez 0.2)))  ; ГЇГ®Г¤Г Г·Г 
+(test (<= ?GlubRez 1)) ; ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет большой припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  "  следовательно показатели шероховатости наилучшие, время обработки уменьшается, но увеличиваются затраты в связи с расходом инструмента "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЎГ®Г«ГјГёГ®Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  "  Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­Г ГЁГ«ГіГ·ГёГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ ГіГ¬ГҐГ­ГјГёГ ГҐГІГ±Гї, Г­Г® ГіГўГҐГ«ГЁГ·ГЁГўГ ГѕГІГ±Гї Г§Г ГІГ°Г ГІГ» Гў Г±ГўГїГ§ГЁ Г± Г°Г Г±ГµГ®Г¤Г®Г¬ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ  "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.8)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr10  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr10  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP maxObr))
-(and (test (<= ?SkorRez 99)) (test (>= ?SkorRez 60))) ; скорость резания
-(or (test (>= ?PodRez 0.21)) (test (<= ?PodRez 0.4)))  ; подача
-(or (test (>= ?GlubRez 1.1)) (test (<= ?GlubRez 3))); глубина резания
+(and (test (<= ?SkorRez 99)) (test (>= ?SkorRez 60))) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.21)) (test (<= ?PodRez 0.4)))  ; ГЇГ®Г¤Г Г·Г 
+(or (test (>= ?GlubRez 1.1)) (test (<= ?GlubRez 3))); ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет большой припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  "  следовательно показатели шероховатости в пределах нормы, время обработки среднее, затраты средние "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЎГ®Г«ГјГёГ®Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  "  Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Гў ГЇГ°ГҐГ¤ГҐГ«Г Гµ Г­Г®Г°Г¬Г», ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ Г±Г°ГҐГ¤Г­ГҐГҐ, Г§Г ГІГ°Г ГІГ» Г±Г°ГҐГ¤Г­ГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.7)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr11  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr11  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP maxObr))
-(and (test (<= ?SkorRez 59)) (test (>= ?SkorRez 20))) ; скорость резания
-(or (test (>= ?PodRez 0.41)) (test (<= ?PodRez 0.6)))  ; подача
-(or (test (>= ?GlubRez 3.1)) (test (<= ?GlubRez 6))); глубина резания
+(and (test (<= ?SkorRez 59)) (test (>= ?SkorRez 20))) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(or (test (>= ?PodRez 0.41)) (test (<= ?PodRez 0.6)))  ; ГЇГ®Г¤Г Г·Г 
+(or (test (>= ?GlubRez 3.1)) (test (<= ?GlubRez 6))); ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет большой припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  " следовательно показатели шероховатости низкие, время обработки  среднее, затраты низкие "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЎГ®Г«ГјГёГ®Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  " Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­ГЁГ§ГЄГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ  Г±Г°ГҐГ¤Г­ГҐГҐ, Г§Г ГІГ°Г ГІГ» Г­ГЁГ§ГЄГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.6)))
 (assert (C_Ai0 (Ai0 1))))
 
-(defrule F_HarProcObr12  ; Характеристика процесса обработки
-(declare (salience 10)) ; Приоритет правила <+10>
+(defrule F_HarProcObr12  ; Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГ  ГЇГ°Г®Г¶ГҐГ±Г±Г  Г®ГЎГ°Г ГЎГ®ГІГЄГЁ
+(declare (salience 10)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+10>
 (C_Dann2 (TipProiz ?TipProiz) (KvalToch ?KvalToch) (SkorRez ?SkorRez) (PodRez ?PodRez) (GlubRez ?GlubRez) (VelPart ?VelPart)) 
 (B_VarTP (VarTP maxObr))
-(test (<= ?SkorRez 19)) ; скорость резания
-(test (>= ?PodRez 0.61)) ; подача
-(test (>= ?GlubRez 6.1)) ; глубина резания
+(test (<= ?SkorRez 19)) ; Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї
+(test (>= ?PodRez 0.61)) ; ГЇГ®Г¤Г Г·Г 
+(test (>= ?GlubRez 6.1)) ; ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї
 =>
-(printout myData crlf " Заготовка имеет большой припуск на механообработку, скорость резания равна "?SkorRez", подача "?PodRez ", глубина резания  "?GlubRez ", " crlf  " следовательно показатели шероховатости низкие, время обработки  увеличивается, затраты низкие "  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡Г ГЈГ®ГІГ®ГўГЄГ  ГЁГ¬ГҐГҐГІ ГЎГ®Г«ГјГёГ®Г© ГЇГ°ГЁГЇГіГ±ГЄ Г­Г  Г¬ГҐГµГ Г­Г®Г®ГЎГ°Г ГЎГ®ГІГЄГі, Г±ГЄГ®Г°Г®Г±ГІГј Г°ГҐГ§Г Г­ГЁГї Г°Г ГўГ­Г  "?SkorRez", ГЇГ®Г¤Г Г·Г  "?PodRez ", ГЈГ«ГіГЎГЁГ­Г  Г°ГҐГ§Г Г­ГЁГї  "?GlubRez ", " crlf  " Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ Г­ГЁГ§ГЄГЁГҐ, ГўГ°ГҐГ¬Гї Г®ГЎГ°Г ГЎГ®ГІГЄГЁ  ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГІГ±Гї, Г§Г ГІГ°Г ГІГ» Г­ГЁГ§ГЄГЁГҐ "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_VozmStan (VozmStan 0.4)))
 (assert (C_Ai0 (Ai0 1))))
 
@@ -455,363 +456,363 @@
 (slot Ai0 (type INTEGER)))
 
 
-(defrule D_UslovVypolSE  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE2  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE2  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE3  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE3  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE4  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE4  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr",отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr",Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE5  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE5  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 2)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(test (>= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE6  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE6  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 2)) ; количество установов
-(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(test (>= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE7  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE7  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 2)) ; количество установов
-(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE8  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE8  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 2)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Tokarn)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE9  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE9  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
  (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 2)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 2)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к фрезерной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГґГ°ГҐГ§ГҐГ°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Frezern)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE10  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE10  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
 (or
 (or (test (= ?OpTip 3)) (test (= ?OpTip 4))) 
-(or (test (= ?OpTip 7)) (test (= ?OpTip 8)))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(or (test (= ?OpTip 7)) (test (= ?OpTip 8)))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к сверлильно-расточной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Sverl-Rastoch)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE11  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE11  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(test (= ?OpTip 6)); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(test (= ?OpTip 6)); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", ,  " crlf  " Станок относится к шлифовальной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Shlifov)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE12  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE12  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 2)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 2)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к фрезерной группе группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГґГ°ГҐГ§ГҐГ°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Frezern)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE13  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE13  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 2)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(test (>= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 10))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к токарной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГІГ®ГЄГ Г°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Frezern)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE14  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE14  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
  (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 2)) ; количество установов
-(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 3)) (test (= ?OpTip 4))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к фрезерной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГґГ°ГҐГ§ГҐГ°Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Frezern)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE15  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE15  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 2)) ; количество установов
-(test (= ?OpTip 6)); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
+(test (= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(test (= ?OpTip 6)); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", ,  " crlf  " Станок относится к шлифовальной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Shlifov)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE16  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE16  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
 (or (test (= ?OpTip 3)) (test (= ?OpTip 4))) 
-(or (test (= ?OpTip 7)) (test (= ?OpTip 8))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(or (test (= ?OpTip 7)) (test (= ?OpTip 8))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к сверлильно-расточной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Sverl-Rastoch)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE17  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE17  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 2)) ; количество установов
+(test (= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
 (or (test (= ?OpTip 3)) (test (= ?OpTip 4))) 
-(or (test (= ?OpTip 7)) (test (= ?OpTip 8))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(or (test (= ?OpTip 7)) (test (= ?OpTip 8))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к сверлильно-расточной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования  "  crlf)
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї  "  crlf)
 (assert (D_StanGrupp (StanGrupp Sverl-Rastoch)))
 (assert (D_Ai0 (Ai0 1))))
 
 
-(defrule D_UslovVypolSE171  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE171  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 2)) ; количество установов
+(test (= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
 (or 
 (or (test (= ?OpTip 3)) (test (= ?OpTip 4))) 
-(or (test (= ?OpTip 7)) (test (= ?OpTip 8)))); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 1))  ; применение СОЖ
+(or (test (= ?OpTip 7)) (test (= ?OpTip 8)))); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 1))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к сверлильно-расточной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования  "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї  "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Sverl-Rastoch)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE18  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE18  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Prut)) 
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 3))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 3))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к строгально-протяжной группе " crlf  " Количество установов  "?KolUst crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Strog-Protyaj)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE19  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE19  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Prut))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 1)) (test (= ?OpTip 3))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 1)) (test (= ?OpTip 3))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к строгально-протяжной группе " crlf  " Количество установов  "?KolUst crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Strog-Protyaj)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE20  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE20  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
  (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 5)) (test (= ?OpTip 11))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 5)) (test (= ?OpTip 11))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к зубообрабатывающей группе " crlf  " Количество установов  "?KolUst" "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГҐГ© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst" "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp ZubObrb)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE21 ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE21 ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
  (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 1)) ; количество установов
-(or (test (= ?OpTip 5)) (test (= ?OpTip 11))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(test (>= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(or (test (= ?OpTip 5)) (test (= ?OpTip 11))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к зубообрабатывающей группе " crlf  " Количество установов  "?KolUst" "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГҐГ© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst" "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp ZubObrb)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE22  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE22  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
  (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 1)) ; количество установов
+(test (>= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
 (or
 (or (test (= ?OpTip 2)) (test (= ?OpTip 3)))
-(or (test (= ?OpTip 7)) (test (= ?OpTip 10)))) ; тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(or (test (= ?OpTip 7)) (test (= ?OpTip 10)))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", отсутствие СОЖ может сказаться на шероховатости и увеличить износ инструмента,  " crlf  " Станок относится к агрегатной группе " crlf  " Количество установов  "?KolUst" "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г‘ГЋГ† Г¬Г®Г¦ГҐГІ Г±ГЄГ Г§Г ГІГјГ±Гї Г­Г  ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГЁ ГЁ ГіГўГҐГ«ГЁГ·ГЁГІГј ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г ГЈГ°ГҐГЈГ ГІГ­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst" "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Agregat)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE23 ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE23 ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP Korp)) 
  (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (>= ?KolUst 1)) ; количество установов
+(test (>= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
 (or
 (or (test (= ?OpTip 2)) (test (= ?OpTip 3)))
-(or (test (= ?OpTip 7)) (test (= ?OpTip 10)))) ; тип операции
- (test (>= ?OpVr 0.1))  ; время выполнения операции
-(test (= ?PrimSOJ 2))  ; применение СОЖ
+(or (test (= ?OpTip 7)) (test (= ?OpTip 10)))) ; ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+ (test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (= ?PrimSOJ 2))  ; ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ†
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", применение СОЖ улучшить шероховатость и уменьшит износ инструмента,  " crlf  " Станок относится к агрегатной группе " crlf  " Количество установов  "?KolUst" "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г‘ГЋГ† ГіГ«ГіГ·ГёГЁГІГј ГёГҐГ°Г®ГµГ®ГўГ ГІГ®Г±ГІГј ГЁ ГіГ¬ГҐГ­ГјГёГЁГІ ГЁГ§Г­Г®Г± ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г ГЈГ°ГҐГЈГ ГІГ­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst" "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Agregat)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE24  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE24  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 2)) ; количество установов
-(test (= ?OpTip 6)); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
+(test (= ?KolUst 2)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(test (= ?OpTip 6)); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", ,  " crlf  " Станок относится к шлифовальной группе " crlf  " Количество установов  "?KolUst", следовательно возможно погрешности базирования "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® ГўГ®Г§Г¬Г®Г¦Г­Г® ГЇГ®ГЈГ°ГҐГёГ­Г®Г±ГІГЁ ГЎГ Г§ГЁГ°Г®ГўГ Г­ГЁГї "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Shlifov)))
 (assert (D_Ai0 (Ai0 1))))
 
-(defrule D_UslovVypolSE25  ; Правило определения условия выполнения структурного элемента
-(declare (salience 9)) ; Приоритет правила <+9>
+(defrule D_UslovVypolSE25  ; ГЏГ°Г ГўГЁГ«Г® Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­ГЁГї ГіГ±Г«Г®ГўГЁГї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+(declare (salience 9)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  <+9>
 (A_VarTP (VarTP TeloVr))
 (D_Dann3 (KolUst ?KolUst) (OpTip ?OpTip) (OpVr ?OpVr) (PrimSOJ ?PrimSOJ) (Osnastka ?Osnastka) (Zahvat ?Zahvat)) 
-(test (= ?KolUst 1)) ; количество установов
-(test (= ?OpTip 6)); тип операции
-(test (>= ?OpVr 0.1))  ; время выполнения операции
+(test (= ?KolUst 1)) ; ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў
+(test (= ?OpTip 6)); ГІГЁГЇ Г®ГЇГҐГ°Г Г¶ГЁГЁ
+(test (>= ?OpVr 0.1))  ; ГўГ°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ
 =>
-(printout myData crlf "Время выполнения операции "?OpVr", ,  " crlf  " Станок относится к шлифовальной группе " crlf  " Количество установов  "?KolUst", следовательно обеспечивается наибольшая точность "  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї Г®ГЇГҐГ°Г Г¶ГЁГЁ "?OpVr", ,  " crlf  " Г‘ГІГ Г­Г®ГЄ Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г®Г© ГЈГ°ГіГЇГЇГҐ " crlf  " ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГіГ±ГІГ Г­Г®ГўГ®Гў  "?KolUst", Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г® Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј "  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (D_StanGrupp (StanGrupp Shlifov)))
 (assert (D_Ai0 (Ai0 1))))
 
 
 (deftemplate Itog (slot Itog))
 
-(defrule Itog1  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog1  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)) )
@@ -821,11 +822,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный токарный станок высокой точности,  "crlf"  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки "crlf"  Возможные модели: "crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  "crlf"  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ "crlf"  Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ: "crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog1))))
 
-(defrule Itog2  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog2  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -835,11 +836,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Токарный станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г’Г®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog2))))
 
-(defrule Itog3  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog3  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -849,11 +850,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный токарный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog3))))
 
-(defrule Itog4  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog4  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -863,11 +864,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный токарный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog4))))
 
-(defrule Itog5  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog5  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -877,11 +878,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Токарный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %.обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г’Г®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %.Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog5))))
 
-(defrule Itog6  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog6  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -891,11 +892,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный токарный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %.обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %.Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog6))))
 
-(defrule Itog7  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog7  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -905,11 +906,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный токарный станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog7))))
 
-(defrule Itog8  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog8  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -919,11 +920,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный токарный станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %.обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %.Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog8))))
 
-(defrule Itog9  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog9  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -933,12 +934,12 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Токарный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %.обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г’Г®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %.Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog9))))
 
 
-(defrule Itog111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -948,11 +949,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный токарный станок высокой точности,  "crlf"  эффективность составляет 50-75 %. "crlf"  Возможные модели: "crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  "crlf"  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. "crlf"  Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ: "crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog1))))
 
-(defrule Itog211  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog211  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -962,11 +963,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Токарный станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г’Г®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog2))))
 
-(defrule Itog311  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog311  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -976,11 +977,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный токарный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog3))))
 
-(defrule Itog411  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog411  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -990,11 +991,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный токарный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog4))))
 
-(defrule Itog511  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog511  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1004,11 +1005,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Токарный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г’Г®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog5))))
 
-(defrule Itog611  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog611  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1018,11 +1019,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный токарный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog6))))
 
-(defrule Itog711  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog711  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1032,11 +1033,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный токарный станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog7))))
 
-(defrule Itog811  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog811  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1046,11 +1047,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный токарный станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГІГ®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog8))))
 
-(defrule Itog911  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog911  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Tokarn))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1060,11 +1061,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Токарный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г’Г®ГЄГ Г°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog9))))
 
-(defrule Itog11  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog11  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1074,12 +1075,12 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный фрезерный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog11))))
 
 
-(defrule Itog12  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog12  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1089,11 +1090,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Фрезерный станок широкого назначения высокой точности,  " crlf  " эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г”Г°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  " ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog12))))
 
-(defrule Itog13  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog13  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1103,11 +1104,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный фрезерный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog13))))
 
-(defrule Itog14  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog14  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1117,11 +1118,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный фрезерный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog14))))
 
-(defrule Itog15  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog15  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1131,11 +1132,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Фрезерный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г”Г°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog15))))
 
-(defrule Itog16  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog16  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1145,11 +1146,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный фрезерный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog16))))
 
-(defrule Itog17  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog17  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1159,11 +1160,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный фрезерный станок нормальной точности," crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ," crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog17))))
 
-(defrule Itog18  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog18  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1173,11 +1174,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный фрезерный станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog18))))
 
-(defrule Itog19  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog19  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1187,11 +1188,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Фрезерный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г”Г°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog19))))
 
-(defrule Itog1111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog1111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1201,12 +1202,12 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный фрезерный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog11))))
 
 
-(defrule Itog121  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog121  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1216,11 +1217,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Фрезерный станок широкого назначения высокой точности,  " crlf  " эффективность составляет 50-75 %." crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г”Г°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  " ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %." crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog12))))
 
-(defrule Itog131  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog131  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1230,11 +1231,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный фрезерный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog13))))
 
-(defrule Itog141  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog141  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1244,11 +1245,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный фрезерный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog14))))
 
-(defrule Itog151  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog151  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1258,11 +1259,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Фрезерный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г”Г°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog15))))
 
-(defrule Itog161  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog161  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1272,11 +1273,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный фрезерный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %." crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %." crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog16))))
 
-(defrule Itog171  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog171  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1286,11 +1287,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный фрезерный станок нормальной точности," crlf  "  эффективность составляет 50-75 %." crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ," crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %." crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog17))))
 
-(defrule Itog181  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog181  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1300,11 +1301,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный фрезерный станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog18))))
 
-(defrule Itog191  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog191  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Frezern))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1314,11 +1315,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Фрезерный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г”Г°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog19))))
 
-(defrule Itog21  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog21  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
  (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1328,11 +1329,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный фрезерный станок высокой точности,  " crlf  "   эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog21))))
 
-(defrule Itog22  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog22  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1342,11 +1343,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Сверлильно-расточной станок широкого назначения высокой точности,  " crlf  "   эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog22))))
 
-(defrule Itog23  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog23  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1356,11 +1357,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный сверлильно-расточной станок высокой точности,  " crlf  "   эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog23))))
 
-(defrule Itog24  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog24  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1370,11 +1371,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный сверлильно-расточной станок повышенной точности,  " crlf  "   эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog24))))
 
-(defrule Itog25  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog25  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1384,11 +1385,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Сверлильно-расточной станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog25))))
 
-(defrule Itog26  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog26  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1398,11 +1399,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный сверлильно-расточной станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog26))))
 
-(defrule Itog27  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog27  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1412,11 +1413,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный сверлильно-расточной станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog27))))
 
-(defrule Itog28  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog28  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1426,11 +1427,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный сверлильно-расточной станок нормальной точности,  " crlf  "   эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog28))))
 
-(defrule Itog29  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog29  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1440,11 +1441,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Сверлильно-расточной станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog29))))
 
-(defrule Itog2111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog2111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1454,11 +1455,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный фрезерный станок высокой точности,  " crlf  "   эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГґГ°ГҐГ§ГҐГ°Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog21))))
 
-(defrule Itog221  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog221  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1468,11 +1469,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Сверлильно-расточной станок широкого назначения высокой точности,  " crlf  "   эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog22))))
 
-(defrule Itog231  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog231  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1482,11 +1483,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный сверлильно-расточной станок высокой точности,  " crlf  "   эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog23))))
 
-(defrule Itog241  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog241  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1496,11 +1497,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный сверлильно-расточной станок повышенной точности,  " crlf  "   эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog24))))
 
-(defrule Itog251  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog251  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1510,11 +1511,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Сверлильно-расточной станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog25))))
 
-(defrule Itog261  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog261  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1524,11 +1525,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный сверлильно-расточной станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog26))))
 
-(defrule Itog271  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog271  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1538,11 +1539,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный сверлильно-расточной станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog27))))
 
-(defrule Itog281  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog281  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1552,11 +1553,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный сверлильно-расточной станок нормальной точности,  " crlf  "   эффективность составляет 50-75%.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "   ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75%.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog28))))
 
-(defrule Itog291  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog291  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Sverl-Rastoch))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1566,11 +1567,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Сверлильно-расточной станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГўГҐГ°Г«ГЁГ«ГјГ­Г®-Г°Г Г±ГІГ®Г·Г­Г®Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog29))))
 
-(defrule Itog31  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog31  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1580,11 +1581,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный шлифовальный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog31))))
 
-(defrule Itog32  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog32  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1594,11 +1595,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Шлифовальный станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog32))))
 
-(defrule Itog33  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog33  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1608,11 +1609,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный шлифовальный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog33))))
 
-(defrule Itog34  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog34  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1622,11 +1623,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный шлифовальный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog34))))
 
-(defrule Itog35  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog35  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1636,11 +1637,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Шлифовальный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog35))))
 
-(defrule Itog36  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog36  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1650,11 +1651,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный шлифовальный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog36))))
 
-(defrule Itog37  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog37  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1663,11 +1664,11 @@
 (A_Ai0 (Ai0 1))
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
-=>(printout myData crlf " Специализированный шлифовальный станок нормальной точности,  " crlf  " эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+=>(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  " ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog37))))
 
-(defrule Itog38  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog38  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1677,11 +1678,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный шлифовальный станок нормальной точности,  " crlf  " эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  " ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog38))))
 
-(defrule Itog39  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog39  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1690,12 +1691,12 @@
 (A_Ai0 (Ai0 1))
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
-=>(printout myData crlf " Шлифовальный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+=>(printout myData crlf " ГГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog39))))
 
 
-(defrule Itog3111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog3111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1705,11 +1706,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный шлифовальный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog31))))
 
-(defrule Itog321  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog321  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1719,11 +1720,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Шлифовальный станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog32))))
 
-(defrule Itog331  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog331  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1733,11 +1734,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный шлифовальный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog33))))
 
-(defrule Itog341  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog341  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1747,11 +1748,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный шлифовальный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog34))))
 
-(defrule Itog351  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog351  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1761,11 +1762,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Шлифовальный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog35))))
 
-(defrule Itog361  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog361  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1775,11 +1776,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный шлифовальный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog36))))
 
-(defrule Itog371  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog371  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1788,11 +1789,11 @@
 (A_Ai0 (Ai0 1))
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
-=>(printout myData crlf " Специализированный шлифовальный станок нормальной точности,  " crlf  " эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+=>(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  " ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog37))))
 
-(defrule Itog381  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog381  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1802,11 +1803,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный шлифовальный станок нормальной точности,  " crlf  " эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© ГёГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  " ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog38))))
 
-(defrule Itog391  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog391  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Shlifov))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1815,12 +1816,12 @@
 (A_Ai0 (Ai0 1))
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
-=>(printout myData crlf " Шлифовальный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+=>(printout myData crlf " ГГ«ГЁГґГ®ГўГ Г«ГјГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog39))))
 
 
-(defrule Itog41  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog41  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1830,11 +1831,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный агрегатный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog41))))
 
-(defrule Itog42  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog42  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1844,11 +1845,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Агрегатный станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГЂГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog42))))
 
-(defrule Itog43  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog43  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1858,11 +1859,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный агрегатный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog43))))
 
-(defrule Itog44  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog44  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1872,11 +1873,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный агрегатный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog44))))
 
-(defrule Itog45  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog45  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1886,11 +1887,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Агрегатный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГЂГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog45))))
 
-(defrule Itog46  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog46  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1900,11 +1901,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный агрегатный станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog46))))
 
-(defrule Itog47  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog47  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1914,11 +1915,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный агрегатный станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog47))))
 
-(defrule Itog48  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog48  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1928,11 +1929,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный агрегатный станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog48))))
 
-(defrule Itog49  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog49  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -1942,11 +1943,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Агрегатный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГЂГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog49))))
 
-(defrule Itog4111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog4111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1956,11 +1957,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный агрегатный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog41))))
 
-(defrule Itog421  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog421  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1970,11 +1971,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Агрегатный станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГЂГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog42))))
 
-(defrule Itog431  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog431  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1984,11 +1985,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный агрегатный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %." crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %." crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog43))))
 
-(defrule Itog441  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog441  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -1998,11 +1999,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный агрегатный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog44))))
 
-(defrule Itog451  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog451  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2012,11 +2013,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Агрегатный станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГЂГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog45))))
 
-(defrule Itog461  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog461  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2026,11 +2027,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный агрегатный станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog46))))
 
-(defrule Itog471  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog471  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2040,11 +2041,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный агрегатный станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog47))))
 
-(defrule Itog481  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog481  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2054,11 +2055,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный агрегатный станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г ГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog48))))
 
-(defrule Itog491  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog491  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Agregat))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2068,11 +2069,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Агрегатный станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " ГЂГЈГ°ГҐГЈГ ГІГ­Г»Г© Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog49))))
 
-(defrule Itog51  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog51  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2082,11 +2083,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный зубообрабатывающий станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog51))))
 
-(defrule Itog52  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog52  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2096,11 +2097,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Зубообрабатывающий  станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog52))))
 
-(defrule Itog53  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog53  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2110,11 +2111,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный зубообрабатывающий  станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog53))))
 
-(defrule Itog54  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog54  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2124,11 +2125,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный зубообрабатывающий  станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog54))))
 
-(defrule Itog55  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog55  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2138,11 +2139,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Зубообрабатывающий  станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog55))))
 
-(defrule Itog56  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog56  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2152,11 +2153,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный зубообрабатывающий  станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog56))))
 
-(defrule Itog57  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog57  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2166,11 +2167,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный зубообрабатывающий  станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog57))))
 
-(defrule Itog58  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog58  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2180,11 +2181,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный зубообрабатывающий  станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog58))))
 
-(defrule Itog59  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog59  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2194,11 +2195,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Зубообрабатывающий  станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog59))))
 
-(defrule Itog5111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog5111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2208,11 +2209,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный зубообрабатывающий станок высокой точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog51))))
 
-(defrule Itog521  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog521  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2222,11 +2223,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Зубообрабатывающий  станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog52))))
 
-(defrule Itog531  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog531  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2236,11 +2237,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный зубообрабатывающий  станок высокой точности,  " crlf  "  эффективность составляет 50-75 %." crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %." crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog53))))
 
-(defrule Itog541  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog541  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2250,11 +2251,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный зубообрабатывающий  станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog54))))
 
-(defrule Itog551  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog551  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2264,11 +2265,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Зубообрабатывающий  станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog55))))
 
-(defrule Itog561  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog561  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2278,11 +2279,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный зубообрабатывающий  станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog56))))
 
-(defrule Itog571  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog571  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2292,11 +2293,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный зубообрабатывающий  станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog57))))
 
-(defrule Itog581  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog581  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2306,11 +2307,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный зубообрабатывающий  станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г§ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog58))))
 
-(defrule Itog591  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog591  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp ZubObrb))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2320,12 +2321,12 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Зубообрабатывающий  станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‡ГіГЎГ®Г®ГЎГ°Г ГЎГ ГІГ»ГўГ ГѕГ№ГЁГ©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog59))))
 
 
-(defrule Itog61  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog61  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2335,11 +2336,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный строгально-протяжный станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog61))))
 
-(defrule Itog62  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog62  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2349,11 +2350,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Строгально-протяжный  станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog62))))
 
-(defrule Itog63  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog63  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2363,11 +2364,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный строгально-протяжный  станок высокой точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog63))))
 
-(defrule Itog64  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog64  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2377,11 +2378,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный строгально-протяжный  станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog64))))
 
-(defrule Itog65  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog65  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2391,11 +2392,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Строгально-протяжный  станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog65))))
 
-(defrule Itog66  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog66  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2405,11 +2406,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный строгально-протяжный  станок повышенной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog66))))
 
-(defrule Itog67  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog67  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2419,11 +2420,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный строгально-протяжный  станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog67))))
 
-(defrule Itog68  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog68  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2433,11 +2434,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный строгально-протяжный  станок нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog68))))
 
-(defrule Itog69  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog69  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 1.0)) (D_VozmStan (VozmStan 0.9)))
@@ -2447,11 +2448,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Строгально-протяжный  станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 80-95 %. обеспечивается наибольшая точность обработки " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 80-95 %. Г®ГЎГҐГ±ГЇГҐГ·ГЁГўГ ГҐГІГ±Гї Г­Г ГЁГЎГ®Г«ГјГёГ Гї ГІГ®Г·Г­Г®Г±ГІГј Г®ГЎГ°Г ГЎГ®ГІГЄГЁ " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog69))))
 
-(defrule Itog6111  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog6111  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2461,11 +2462,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf "Специализированный строгально-протяжный станок высокой точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf "Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г© Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog61))))
 
-(defrule Itog621  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog621  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2475,11 +2476,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Строгально-протяжный  станок широкого назначения высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog62))))
 
-(defrule Itog631  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog631  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2489,11 +2490,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный строгально-протяжный  станок высокой точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГўГ»Г±Г®ГЄГ®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog63))))
 
-(defrule Itog641  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog641  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2503,11 +2504,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный строгально-протяжный  станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog64))))
 
-(defrule Itog651  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog651  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2517,11 +2518,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Строгально-протяжный  станок широкого назначения повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog65))))
 
-(defrule Itog661  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog661  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2531,11 +2532,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный строгально-протяжный  станок повышенной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГЇГ®ГўГ»ГёГҐГ­Г­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog66))))
 
-(defrule Itog671  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog671  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2545,11 +2546,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Специализированный строгально-протяжный  станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГЇГҐГ¶ГЁГ Г«ГЁГ§ГЁГ°Г®ГўГ Г­Г­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog67))))
 
-(defrule Itog681  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog681  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2559,11 +2560,11 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Универсальный строгально-протяжный  станок нормальной точности,  " crlf  "  эффективность составляет 50-75 %. " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г“Г­ГЁГўГҐГ°Г±Г Г«ГјГ­Г»Г© Г±ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %. " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog68))))
 
-(defrule Itog691  ; Правило назначения станка
-(declare (salience 8)) ; Приоритет правила +8
+(defrule Itog691  ; ГЏГ°Г ГўГЁГ«Г® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г±ГІГ Г­ГЄГ 
+(declare (salience 8)) ; ГЏГ°ГЁГ®Г°ГЁГІГҐГІ ГЇГ°Г ГўГЁГ«Г  +8
 (D_StanGrupp (StanGrupp Strog-Protyaj))
 (or
 (or (D_VozmStan (VozmStan 0.7)) (D_VozmStan (VozmStan 0.6)))
@@ -2573,6 +2574,6 @@
 (C_Ai0 (Ai0 1))
 (D_Ai0 (Ai0 1))
 =>
-(printout myData crlf " Строгально-протяжный  станок широкого назначения нормальной точности,  " crlf  "  эффективность составляет 50-75 %.  " crlf  " Возможные модели:"  crlf);; Вывод в файл сообщения
+(printout myData crlf " Г‘ГІГ°Г®ГЈГ Г«ГјГ­Г®-ГЇГ°Г®ГІГїГ¦Г­Г»Г©  Г±ГІГ Г­Г®ГЄ ГёГЁГ°Г®ГЄГ®ГЈГ® Г­Г Г§Г­Г Г·ГҐГ­ГЁГї Г­Г®Г°Г¬Г Г«ГјГ­Г®Г© ГІГ®Г·Г­Г®Г±ГІГЁ,  " crlf  "  ГЅГґГґГҐГЄГІГЁГўГ­Г®Г±ГІГј Г±Г®Г±ГІГ ГўГ«ГїГҐГІ 50-75 %.  " crlf  " Г‚Г®Г§Г¬Г®Г¦Г­Г»ГҐ Г¬Г®Г¤ГҐГ«ГЁ:"  crlf);; Г‚Г»ГўГ®Г¤ Гў ГґГ Г©Г« Г±Г®Г®ГЎГ№ГҐГ­ГЁГї
 (assert (Itog (Itog Itog69))))
 
